@@ -33,7 +33,7 @@
             flex-direction: column;
         }
 
-        /* PAGE 1: FORM STYLES */
+        /* PAGE 1: FORM STYLES (1000027173.jpg) */
         .form-page {
             padding: 20px;
             display: block;
@@ -89,17 +89,17 @@
             box-shadow: 0 4px 10px rgba(123, 31, 162, 0.3);
         }
 
-        /* PAGE 2: CBE RECEIPT STYLES */
+        /* PAGE 2: CBE RECEIPT STYLES (e02d22bf-b7b3-4017-a9ba-dd406404011a) */
         .receipt-page {
             background-color: #7b1fa2;
             color: white;
             flex-direction: column;
             min-height: 100vh;
-            display: none; /* Hidden initially */
+            display: none; 
         }
 
         .receipt-header {
-            padding: 30px 24px 20px 24px;
+            padding: 25px 24px 20px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -111,119 +111,141 @@
             gap: 15px;
         }
 
-        .check-circle {
+        .check-container {
             background-color: white;
             color: #7b1fa2;
-            width: 40px;
-            height: 40px;
-            border-radius: 5px;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 22px;
         }
 
         .header-text h2 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .header-text p {
-            font-size: 13px;
+            font-size: 14px;
             opacity: 0.9;
         }
 
-        .scan-icon {
-            font-size: 22px;
+        .scan-icon-container {
+            font-size: 20px;
             opacity: 0.9;
-            border: 2px solid white;
-            padding: 4px;
-            border-radius: 8px;
+            border: 1.5px solid rgba(255,255,255,0.7);
+            padding: 6px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
+        /* MAIN RECEIPT BODY */
         .receipt-body {
             background-color: white;
             color: #333;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
+            border-top-left-radius: 28px;
+            border-top-right-radius: 28px;
             flex-grow: 1;
-            padding: 24px;
+            padding: 20px 20px 10px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .success-banner {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
-            color: #4a4a4a;
-            margin-bottom: 20px;
-            margin-top: 10px;
+            color: #333333;
+            margin-bottom: 18px;
+            margin-top: 5px;
+            text-align: center;
+            width: 100%;
         }
 
-        .transaction-card {
-            background-color: #f5f5f7;
-            border-radius: 16px;
+        /* UNIFIED BACKGROUND BOX FOR TEXT & QR CODE */
+        .unified-transaction-card {
+            background-color: #f4f4f6;
+            border-radius: 18px;
             padding: 20px;
             width: 100%;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #212121;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .transaction-card p {
-            margin-bottom: 12px;
+        .transaction-text-content {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #212121;
+            width: 100%;
+            text-align: left;
         }
 
         .bold-text {
             font-weight: 700;
         }
 
-        .qr-section {
-            margin: 25px 0;
+        /* QR Code integration inside the card */
+        .qr-inside-card {
+            margin-top: 25px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: center;
-        }
-
-        .qr-section img {
-            width: 140px;
-            height: 140px;
-        }
-
-        .cbe-logo-footer {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             width: 100%;
-            margin-top: auto;
-            padding-bottom: 20px;
         }
 
-        .cbe-logo-footer img {
-            width: 35px;
-            height: 35px;
+        .qr-inside-card img {
+            width: 145px;
+            height: 145px;
             object-fit: contain;
         }
 
+        /* Bank Footer Elements */
+        .cbe-logo-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+
+        .cbe-custom-logo {
+            background: #d4af37; 
+            border-radius: 50%; 
+            padding: 6px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .cbe-text h4 {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
-            color: #424242;
+            color: #333333;
         }
 
         .cbe-text p {
-            font-size: 11px;
-            color: #757575;
+            font-size: 11.5px;
+            color: #666666;
         }
 
-        /* BOTTOM ACTION BUTTONS */
+        /* ACTION NAVIGATION BOTTOM BAR */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 15px 10px;
-            border-top: 1px solid #e0e0e0;
+            padding: 12px 10px;
+            border-top: 1px solid #eeeeee;
             width: 100%;
         }
 
@@ -232,26 +254,31 @@
             border: none;
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 13px;
+            gap: 8px;
+            font-size: 14px;
             font-weight: 600;
-            color: #424242;
+            color: #333333;
             cursor: pointer;
+        }
+
+        .action-btn i {
+            font-size: 16px;
+            color: #444444;
         }
 
         .close-container {
             background-color: #ffffff;
-            padding: 0 16px 16px 16px;
+            padding: 0 20px 20px 20px;
             width: 100%;
         }
 
         .btn-close {
             width: 100%;
-            background-color: #e0e0e0;
-            color: #424242;
+            background-color: #e0e0e4;
+            color: #333333;
             border: none;
-            padding: 12px;
-            font-size: 15px;
+            padding: 13px;
+            font-size: 16px;
             font-weight: 600;
             border-radius: 25px;
             cursor: pointer;
@@ -278,7 +305,7 @@
 
             <div class="input-group">
                 <label>Sender Account (Last 4 Digits)</label>
-                <input type="text" id="inputSenderAcc" placeholder="e.g. 7665" maxlength="4" required>
+                <input type="text" id="inputSenderAcc" placeholder="e.g. 1221" maxlength="4" required>
             </div>
 
             <div class="input-group">
@@ -288,7 +315,7 @@
 
             <div class="input-group">
                 <label>Receiver Account (Last 4 Digits)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="e.g. 2335" maxlength="4" required>
+                <input type="text" id="inputReceiverAcc" placeholder="e.g. 2354" maxlength="4" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -299,7 +326,7 @@
         <div id="receiptPage" class="receipt-page">
             <div class="receipt-header">
                 <div class="header-left">
-                    <div class="check-circle">
+                    <div class="check-container">
                         <i class="fa-solid fa-check"></i>
                     </div>
                     <div class="header-text">
@@ -307,34 +334,40 @@
                         <p>Success</p>
                     </div>
                 </div>
-                <i class="fa-solid fa-qrcode scan-icon"></i>
+                <div class="scan-icon-container">
+                    <i class="fa-solid fa-qrcode"></i>
+                </div>
             </div>
 
             <div class="receipt-body">
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <div class="transaction-card">
-                    ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
-                    <span class="bold-text" id="displaySender">Sender Name</span> ETB-<span id="displaySenderAcc">0000</span> for 
-                    <span class="bold-text" id="displayReceiver">Receiver Name</span> ETB-<span id="displayReceiverAcc">0000</span> on 
-                    <span class="bold-text" id="displayDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
-                    <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
-                    Total Amount Debited: <span id="displayTotalDebited">0.00</span> ETB with Service Charge of ETB0.50, 
-                    VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
+                <!-- Unified Darker Box Area for Details + QR Code -->
+                <div class="unified-transaction-card">
+                    <div class="transaction-text-content">
+                        ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
+                        <span class="bold-text" id="displaySender">Sender Name</span> ETB-<span id="displaySenderAcc">0000</span> for 
+                        <span class="bold-text" id="displayReceiver">Receiver Name</span> ETB-<span id="displayReceiverAcc">0000</span> on 
+                        <span class="bold-text" id="displayDate">Jun 18, 2026 09:51 PM</span> with transaction ID: 
+                        <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
+                        Total Amount Debited: <span id="displayTotalDebited">0.00</span> ETB with Service Charge of ETB0.50, 
+                        VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
+                    </div>
+
+                    <!-- QR code perfectly integrated down here inside the same container -->
+                    <div class="qr-inside-card">
+                        <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE-Transfer" alt="QR Code">
+                    </div>
                 </div>
 
-                <!-- Live Dummy QR code matching the data -->
-                <div class="qr-section">
-                    <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE-Transfer" alt="QR Code">
-                </div>
-
-                <!-- Bank Footer Details -->
+                <!-- Bank Info Bottom Footer -->
                 <div class="cbe-logo-footer">
-                    <!-- Placeholder for the CBE circular gold emblem/logo -->
-                    <svg width="35" height="35" viewBox="0 0 100 100" style="background:#d4af37; border-radius:50%; padding:5px;">
-                        <circle cx="50" cy="50" r="40" stroke="#fff" stroke-width="4" fill="none"/>
-                        <path d="M30 50 L45 65 L70 35" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>
-                    </svg>
+                    <div class="cbe-custom-logo">
+                        <svg width="22" height="22" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="42" stroke="#fff" stroke-width="5" fill="none"/>
+                            <path d="M32 52 L46 66 L70 36" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="cbe-text">
                         <h4>Commercial Bank of Ethiopia</h4>
                         <p>The bank you can always rely on!</p>
@@ -342,7 +375,7 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Layout -->
+            <!-- Bottom Actions and Spacing Corrections -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn"><i class="fa-solid fa-expand"></i> Screenshot</button>
@@ -357,26 +390,23 @@
 
     <script>
         function generateReceiptData() {
-            // Get inputs
             const amount = parseFloat(document.getElementById('inputAmount').value) || 0;
             const senderName = document.getElementById('inputSenderName').value;
             const senderAcc = document.getElementById('inputSenderAcc').value;
             const receiverName = document.getElementById('inputReceiverName').value;
             const receiverAcc = document.getElementById('inputReceiverAcc').value;
 
-            // Simple validation check
             if(!amount || !senderName || !senderAcc || !receiverName || !receiverAcc) {
-                alert("Please fill in all details to generate the receipt.");
+                alert("Please fill in all fields.");
                 return;
             }
 
-            // Calculations based on the CBE format rules
             const serviceCharge = 0.50;
             const vat = 0.08;
             const disasterRecovery = 0.03;
             const totalDebited = (amount + serviceCharge + vat + disasterRecovery).toFixed(2);
 
-            // Generate random simulated Transaction ID (Format: FT + 8 Alphanumeric)
+            // Generate clean transaction reference code structure
             const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let randomTx = '';
             for (let i = 0; i < 10; i++) {
@@ -384,18 +414,18 @@
             }
             const txID = "FT" + randomTx;
 
-            // Generate Current Date-Time beautifully formatted (e.g., Jun 18, 2026 07:46 PM)
+            // Generate dynamic actual date layout matching the design
             const now = new Date();
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             let hours = now.getHours();
             let minutes = now.getMinutes();
             const ampm = hours >= 12 ? 'PM' : 'AM';
             hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
+            hours = hours ? hours : 12; 
             minutes = minutes < 10 ? '0'+minutes : minutes;
             const formattedDate = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${hours < 10 ? '0'+hours : hours}:${minutes} ${ampm}`;
 
-            // Inject data into receipt view fields
+            // Injecting live values safely
             document.getElementById('displayAmount').innerText = amount.toFixed(1);
             document.getElementById('displaySender').innerText = senderName;
             document.getElementById('displaySenderAcc').innerText = senderAcc;
@@ -405,17 +435,16 @@
             document.getElementById('displayTxID').innerText = txID;
             document.getElementById('displayTotalDebited').innerText = totalDebited;
 
-            // Update QR Code target with actual summary text data
-            const qrText = `TxID:${txID}|From:${senderName}|To:${receiverName}|Amt:${totalDebited}`;
+            // Setup QR code content generator
+            const qrText = `CBE|TxID:${txID}|Amt:${totalDebited}|From:${senderName}`;
             document.getElementById('qrCode').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrText)}`;
 
-            // Toggle screens
+            // UI Switching animations
             document.getElementById('formPage').style.display = 'none';
             document.getElementById('receiptPage').style.display = 'flex';
         }
 
         function goToForm() {
-            // Clear inputs and head back to form view
             document.getElementById('formPage').style.display = 'block';
             document.getElementById('receiptPage').style.display = 'none';
         }
