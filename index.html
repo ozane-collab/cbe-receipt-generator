@@ -15,7 +15,7 @@
             align-items: center;
         }
 
-        /* ================= 1. INPUT FORM STYLE (1000027173.jpg Match) ================= */
+        /* ================= 1. INPUT FORM STYLE ================= */
         .form-view {
             width: 100%;
             max-width: 375px;
@@ -23,6 +23,7 @@
             padding: 24px 20px;
             border-radius: 16px;
             box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .form-view h2 {
             color: #7A1B8C;
@@ -55,10 +56,6 @@
             font-size: 15px;
             color: #333;
             outline: none;
-            background-color: #fff;
-        }
-        .form-group input::placeholder {
-            color: #A0A0A0;
         }
         .form-group input:focus {
             border-color: #7A1B8C;
@@ -74,10 +71,9 @@
             font-weight: 600;
             cursor: pointer;
             margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(122, 27, 140, 0.2);
         }
 
-        /* ================= 2. TRUE RECEIPT APP STYLE (1000027151_5.jpg Match) ================= */
+        /* ================= 2. TRUE RECEIPT VIEW ================= */
         .phone-mockup {
             width: 100%;
             max-width: 375px; 
@@ -88,9 +84,9 @@
             position: relative;
         }
 
-        /* Header Layout */
+        /* Header Layout (1000027185.jpg Match) */
         .header {
-            padding: 20px 20px 45px 20px;
+            padding: 24px 20px 48px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -99,29 +95,39 @@
         .header-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
         .shield-icon {
             width: 22px;
             height: 26px;
             fill: white;
         }
+        .success-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         .success-title h2 {
             margin: 0;
-            font-size: 22px;
+            font-size: 20px; /* Reduced as requested */
             font-weight: 600;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
+            line-height: 1.2;
         }
         .success-title p {
             margin: 2px 0 0 0;
-            font-size: 13px;
-            opacity: 0.85;
-        }
-        .scanner-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
+            font-size: 12px;
             opacity: 0.9;
+        }
+        
+        /* Top Right Target/Scanner Icon */
+        .scanner-btn svg {
+            width: 26px;
+            height: 26px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            opacity: 0.95;
         }
 
         /* White Canvas Base */
@@ -137,47 +143,46 @@
             position: relative;
         }
 
-        /* Floating Checkmark - Raised overlap style */
+        /* Floating Checkmark */
         .checkmark-wrapper {
             position: absolute;
             top: -43px; 
             z-index: 10;
         }
         .checkmark-circle {
-            width: 80px;
-            height: 80px;
+            width: 82px;
+            height: 82px;
             background: #7A1B8C;
-            border: 4px solid white;
+            border: 4.5px solid white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .checkmark-tick {
-            width: 28px;
-            height: 14px;
+            width: 26px;
+            height: 13px;
             border-left: 5px solid white;
             border-bottom: 5px solid white;
             transform: rotate(-45deg);
-            margin-top: -5px;
+            margin-top: -4px;
         }
 
-        /* Text beneath the floating checkmark */
         .msg-title {
             color: #333333;
             font-size: 15px;
             font-weight: 500;
-            margin-top: 52px; 
-            margin-bottom: 14px;
+            margin-top: 54px; 
+            margin-bottom: 15px;
             text-align: center;
         }
         
-        /* Transaction Summary Box Background (Dbn Yale Match) */
+        /* Summary Box Background Tint */
         .summary-box {
             background: #F3F4F6; 
-            border-radius: 24px;
-            padding: 22px 18px;
+            border-radius: 22px;
+            padding: 22px 16px;
             width: 100%;
             box-sizing: border-box;
             display: flex;
@@ -197,6 +202,7 @@
             font-size: 14.5px;
             color: #1F2937;
             text-align: left;
+            word-spacing: 0.2px;
         }
         .bold {
             font-weight: 700;
@@ -205,18 +211,18 @@
         
         /* QR Code Layout */
         .qr-section {
-            margin: 22px 0;
+            margin: 24px 0;
             display: flex;
             justify-content: center;
             width: 100%;
         }
         .qr-section img {
             background: white;
-            padding: 6px;
-            border-radius: 4px;
+            padding: 4px;
+            border-radius: 2px;
         }
         
-        /* Official Logo Section */
+        /* High Fidelity CBE Logo Layout (1000027188.jpg Match) */
         .cbe-brand-row {
             display: flex;
             align-items: center;
@@ -225,9 +231,10 @@
             padding-top: 16px;
             width: 100%;
         }
-        .cbe-logo-img {
-            width: 42px;
-            height: 42px;
+        .cbe-logo-vector {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
         }
         .cbe-brand-text h4 {
             margin: 0;
@@ -241,27 +248,27 @@
             color: #6B7280;
         }
 
-        /* Bottom Controls Fixed Styling */
+        /* Bottom Actions Layout (1000027182.jpg Match) */
         .footer-actions {
             display: flex;
             justify-content: space-around;
             width: 100%;
             margin-top: 25px;
-            padding: 14px 0;
+            padding: 14px 0 8px 0;
             border-top: 1.5px solid #F3F4F6;
         }
         .action-btn {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 13.5px;
+            font-size: 14.5px;
             color: #000000; 
             font-weight: 600;
             cursor: pointer;
         }
         .action-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: #000000;
         }
         
@@ -282,7 +289,7 @@
 </head>
 <body>
 
-    <!-- ================= 1. INPUT FORM CONTROL VIEW ================= -->
+    <!-- ================= 1. INPUT FORM VIEW ================= -->
     <div id="formView" class="form-view">
         <h2>Receipt Generator</h2>
         <div class="form-divider"></div>
@@ -315,11 +322,10 @@
         <button class="submit-btn" onclick="generateReceipt()">Generate Receipt</button>
     </div>
 
-    <!-- ================= 2. LIVE APP GENERATOR RECEIPT VIEW ================= -->
+    <!-- ================= 2. GENERATED APP RECEIPT VIEW ================= -->
     <div id="receiptView" class="phone-mockup" style="display: none;">
         <div class="header">
             <div class="header-left">
-                <!-- Exact Guard Shield Icon -->
                 <svg class="shield-icon" viewBox="0 0 24 24">
                     <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.1 13.9l-3.5-3.5 1.42-1.42 2.08 2.08 5.67-5.67 1.42 1.42-7.09 7.09z"/>
                 </svg>
@@ -329,15 +335,15 @@
                 </div>
             </div>
             <div class="scanner-btn">
-                <!-- QR Scanner Action Button -->
+                <!-- Exact Scanner Box Icon (1000027185.jpg) -->
                 <svg viewBox="0 0 24 24">
-                    <path d="M4 4h6v2H4v4H2V4c0-1.1.9-2 2-2zm16 0c1.1 0 2 .9 2 2v6h-2V6h-4V4h4zM4 20h4v2H4c-1.1 0-2-.9-2-2v-6h2v4zm16 0v-4h2v6c0 1.1-.9 2-2 2h-4v-2h4zM7 7h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z"/>
+                    <path d="M4 4h4V2H4c-1.1 0-2 .9-2 2v4h2V4zm16-2h-4v2h4v4h2V4c0-1.1-.9-2-2-2zM4 16H2v4c0 1.1.9 2 2 2h4v-2H4v-4zm16 4h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z" fill="white"/>
+                    <circle cx="12" cy="12" r="3" fill="white"/>
                 </svg>
             </div>
         </div>
 
         <div class="receipt-container">
-            <!-- Checkmark circle floated overlapping to top boundary -->
             <div class="checkmark-wrapper">
                 <div class="checkmark-circle">
                     <div class="checkmark-tick"></div>
@@ -350,25 +356,39 @@
                 <span class="box-title">Transaction Summary</span>
                 
                 <div class="summary-text">
-                    ETB <span class="bold" id="recAmount">0.0</span> has been debited from <span class="bold" id="recSender">Name</span> <span id="recSenderAcc">ETB-0000</span> for <span class="bold" id="recReceiver">Name</span> <span id="recReceiverAcc">ETB-0000</span> on <span class="bold" id="recDate">Jun 18, 2026 09:11 PM</span> with transaction ID: <span class="bold" id="recTxID">FT26KASQL9DX</span>. Reason: MB Transfer Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
+                    ETB <span class="bold" id="recAmount">0.0</span> has been debited from <span class="bold" id="recSender">Name</span> <span id="recSenderAcc">ETB-0000</span> for <span class="bold" id="recReceiver">Name</span> <span id="recReceiverAcc">ETB-0000</span> on <span class="bold" id="recDate">Jun 18, 2026 09:25 PM</span> with transaction ID: <span class="bold" id="recTxID">FT266EG53BDS</span>. Reason: MB Transfer Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
                 </div>
 
                 <div class="qr-section">
-                    <img id="qrImage" src="" alt="QR Payload" width="125" height="125">
+                    <img id="qrImage" src="" alt="QR" width="130" height="130">
                 </div>
 
-                <!-- Commercial Bank Of Ethiopia Row -->
+                <!-- Commercial Bank Of Ethiopia Row with Spirograph Spiral (1000027188.jpg) -->
                 <div class="cbe-brand-row">
-                    <!-- High Fidelity Accurate Gold Logo -->
-                    <svg class="cbe-logo-img" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="42" fill="url(#goldGradient)" stroke="#B39343" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="34" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/>
-                        <text x="50" y="58" font-family="'Times New Roman', Times, serif" font-weight="900" font-size="25" fill="#4A2E0B" text-anchor="middle">BE</text>
+                    <svg class="cbe-logo-vector" viewBox="0 0 100 100">
+                        <!-- Precise spiral wire design mimicry -->
+                        <g stroke="#C6A25D" stroke-width="0.8" fill="none" opacity="0.85">
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(0 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(15 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(30 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(45 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(60 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(75 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(90 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(105 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(120 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(135 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(150 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="35" ry="11" transform="rotate(165 50 50)"/>
+                        </g>
+                        <!-- Center Gold Coin Base Layer -->
+                        <circle cx="50" cy="51" r="21" fill="url(#goldCoin)" stroke="#A6833D" stroke-width="1.2"/>
+                        <text x="50" y="57" font-family="'Times New Roman', Times, serif" font-weight="bold" font-size="15" fill="#3B2205" text-anchor="middle">BE</text>
                         <defs>
-                            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#FFF3CD"/>
-                                <stop offset="40%" stop-color="#D1A849"/>
-                                <stop offset="100%" stop-color="#805B15"/>
+                            <linearGradient id="goldCoin" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FCEFCE"/>
+                                <stop offset="50%" stop-color="#CDA34B"/>
+                                <stop offset="100%" stop-color="#7C5914"/>
                             </linearGradient>
                         </defs>
                     </svg>
@@ -379,20 +399,24 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Layout -->
+            <!-- Bottom Actions Vector Overrides (1000027182.jpg) -->
             <div class="footer-actions">
                 <div class="action-btn">
-                    <!-- Accurate Receipt Tiny Icon -->
-                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <!-- Custom Receipt with Dollar Sign Detail -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-3 16c0 .55-.45 1-1 1s-1-.45-1-1v-1H8v-2h3v-1H9c-.55 0-1-.45-1-1v-2c0-.55 dinn .45-1 1-1h1V9c0-.55.45-1 1-1s1 .45 1 1v1h1v2H9v1h2c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1v1z"/>
+                    </svg>
                     Receipt
                 </div>
                 <div class="action-btn">
-                    <!-- Accurate Screenshot Tiny Icon -->
-                    <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 9.5l2.5 3.01L14.5 8l4.5 6H5l3.5-4.5z"/></svg>
+                    <!-- Target Camera Capture Frame Detail -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 5h3V3H5c-1.1 0-2 .9-2 2v3h2V5zm14-2h-3v2h3v3h2V5c0-1.1-.9-2-2-2zM5 16H3v3c0 1.1.9 2 2 2h3v-2H5v-3zm14 3h-3v2h3c1.1 0 2-.9 2-2v-3h-2v3z"/>
+                        <circle cx="12" cy="12" r="2.5"/>
+                    </svg>
                     Screenshot
                 </div>
                 <div class="action-btn">
-                    <!-- Share Icon Point Node -->
                     <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
                     Share
                 </div>
@@ -430,10 +454,10 @@
             const amtVal = document.getElementById('inputAmount').value || "0.0";
             const amt = parseFloat(amtVal);
             
-            const sender = document.getElementById('inputSender').value || "Maaaa";
-            let sAcc = document.getElementById('inputSenderAcc').value || "7777";
-            const receiver = document.getElementById('inputReceiver').value || "Haaa";
-            let rAcc = document.getElementById('inputReceiverAcc').value || "6789";
+            const sender = document.getElementById('inputSender').value || "Buuu";
+            let sAcc = document.getElementById('inputSenderAcc').value || "5566";
+            const receiver = document.getElementById('inputReceiver').value || "Yahu";
+            let rAcc = document.getElementById('inputReceiverAcc').value || "9900";
 
             if (!sAcc.startsWith("ETB-")) sAcc = "ETB-" + sAcc;
             if (!rAcc.startsWith("ETB-")) rAcc = "ETB-" + rAcc;
@@ -451,7 +475,7 @@
             document.getElementById('recTxID').innerText = generatedTx;
             document.getElementById('recTotal').innerText = total.toFixed(2);
             
-            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=125x125&data=CBE-${generatedTx}`;
+            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=CBE-${generatedTx}`;
 
             document.getElementById('formView').style.display = 'none';
             document.getElementById('receiptView').style.display = 'flex';
