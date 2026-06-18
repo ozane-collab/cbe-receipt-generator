@@ -27,6 +27,7 @@
             max-width: 412px;
             background-color: #ffffff;
             min-height: 100vh;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -59,7 +60,38 @@
             margin-bottom: 6px;
         }
 
-        .input-group input {
+        /* Container to look like input but hold fixed ETB- text */
+        .account-input-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid #bdbdbd;
+            border-radius: 8px;
+            padding-left: 12px;
+            background-color: #ffffff;
+        }
+
+        .account-input-wrapper:focus-within {
+            border-color: #7b1fa2;
+        }
+
+        .account-prefix {
+            font-size: 16px;
+            font-weight: 600;
+            color: #212121;
+            user-select: none;
+        }
+
+        .account-input-wrapper input {
+            width: 100%;
+            padding: 12px 12px 12px 2px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #212121;
+            background: transparent;
+        }
+
+        .standard-input {
             width: 100%;
             padding: 12px;
             border: 1.5px solid #bdbdbd;
@@ -70,7 +102,7 @@
             transition: border-color 0.2s;
         }
 
-        .input-group input:focus {
+        .standard-input:focus {
             border-color: #7b1fa2;
         }
 
@@ -85,6 +117,7 @@
             border-radius: 25px;
             margin-top: 30px;
             cursor: pointer;
+            box-shadow: 0 4px 10px rgba(123, 31, 162, 0.3);
         }
 
         /* PAGE 2: CBE RECEIPT STYLES */
@@ -158,7 +191,7 @@
             align-items: center;
         }
 
-        /* Thin Checkmark Badge inside Circle (#1000027226.jpg Layout) */
+        /* Big Middle Purple Circle Badge with Slim Edge-to-Edge Custom Checkmark */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
@@ -170,16 +203,17 @@
             align-items: center;
             justify-content: center;
             margin-top: -44px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .big-check-badge svg {
-            width: 42px;
-            height: 42px;
+            width: 62px; /* Set to stretch exactly from edge to edge */
+            height: 62px;
             fill: none;
             stroke: white;
-            stroke-width: 4.5; /* Made thinner to match image */
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            stroke-width: 4.5; /* Slender thin line format */
+            stroke-linecap: square;
+            stroke-linejoin: miter;
         }
 
         .success-banner {
@@ -192,16 +226,16 @@
             width: 100%;
         }
 
-        /* FIXED COLOR MIX TO #f2f2f2 & SHADOWS COMPLETELY REMOVED */
+        /* UPDATED BACKING BOX MATRICES WITH NO SHADOW AND #f2f2f2 BACKGROUND */
         .unified-transaction-card {
-            background-color: #f2f2f2; /* Exact color picker layout from image */
+            background-color: #f2f2f2; /* Exact color picker option matching */
             border-radius: 20px;
             padding: 18px;
             width: 100%;
             display: flex;
             flex-direction: column;
             margin-bottom: 0px; 
-            box-shadow: none; /* Shadow removed */
+            box-shadow: none; /* Completely removed shadow matrix layout */
         }
 
         .card-title {
@@ -258,7 +292,7 @@
             color: #666666;
         }
 
-        /* BOTTOM NAV ACTIONS BAR (Perfect spacing close up) */
+        /* BOTTOM NAV ACTIONS BAR (Distance perfectly flush to zero spacing gap) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
@@ -322,27 +356,34 @@
             
             <div class="input-group">
                 <label>Amount (ETB)</label>
-                <input type="number" id="inputAmount" placeholder="Amount" step="0.01" required>
+                <input type="number" id="inputAmount" class="standard-input" placeholder="Amount" step="0.01" required>
             </div>
 
             <div class="input-group">
                 <label>Sender Full Name</label>
-                <input type="text" id="inputSenderName" placeholder="Full Name" required>
+                <input type="text" id="inputSenderName" class="standard-input" placeholder="Full Name" required>
             </div>
 
             <div class="input-group">
-                <label>Sender Account (4 Digits Only)</label>
-                <input type="text" id="inputSenderAcc" placeholder="4 Digits Only" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                <label>Sender Account (4 Digits)</label>
+                <!-- Styled wrapper to display fixed ETB- cleanly inside box -->
+                <div class="account-input-wrapper">
+                    <span class="account-prefix">ETB-</span>
+                    <input type="text" id="inputSenderAcc" placeholder="4 Digits" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                </div>
             </div>
 
             <div class="input-group">
                 <label>Receiver Full Name</label>
-                <input type="text" id="inputReceiverName" placeholder="Full Name" required>
+                <input type="text" id="inputReceiverName" class="standard-input" placeholder="Full Name" required>
             </div>
 
             <div class="input-group">
-                <label>Receiver Account (4 Digits Only)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="4 Digits Only" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                <label>Receiver Account (4 Digits)</label>
+                <div class="account-input-wrapper">
+                    <span class="account-prefix">ETB-</span>
+                    <input type="text" id="inputReceiverAcc" placeholder="4 Digits" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                </div>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -374,16 +415,16 @@
             </div>
 
             <div class="receipt-body">
-                <!-- Clean, thin stroke checkmark centered flawlessly -->
+                <!-- Slim Edge-to-Edge Slender Checkmark Layout Framework -->
                 <div class="big-check-badge">
                     <svg viewBox="0 0 24 24">
-                        <polyline points="20 7 9 17 4 12"></polyline>
+                        <path d="M3 11.5 L9.5 18 L21 6" />
                     </svg>
                 </div>
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <!-- Grey Fill Card Block Frame -->
+                <!-- Zero-Shadow #f2f2f2 Solid Grey Card Summary -->
                 <div class="unified-transaction-card">
                     <div class="card-title">Transaction Summary</div>
                     
@@ -391,7 +432,7 @@
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
-                        <span class="bold-text" id="displayDate">Jun 19, 2026 12:53 AM</span> with transaction ID: 
+                        <span class="bold-text" id="displayDate">Jun 19, 2026 01:02 AM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
@@ -424,7 +465,7 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Bar Framework (Flush Close Spacing Layout) -->
+            <!-- Bottom Actions Bar Framework -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
@@ -449,18 +490,18 @@
         function generateReceiptData() {
             const amountInput = parseFloat(document.getElementById('inputAmount').value) || 0;
             const senderName = document.getElementById('inputSenderName').value;
-            let senderAcc = document.getElementById('inputSenderAcc').value;
+            let senderRaw = document.getElementById('inputSenderAcc').value;
             const receiverName = document.getElementById('inputReceiverName').value;
-            let receiverAcc = document.getElementById('inputReceiverAcc').value;
+            let receiverRaw = document.getElementById('inputReceiverAcc').value;
 
-            if(!amountInput || !senderName || !senderAcc || !receiverName || !receiverAcc) {
+            if(!amountInput || !senderName || !senderRaw || !receiverName || !receiverRaw) {
                 alert("እባክዎ ሁሉንም መረጃዎች በትክክል ይሙሉ!");
                 return;
             }
 
-            // Ensures structural ETB- format is always mapped for receipt delivery layout
-            if(!senderAcc.toUpperCase().startsWith("ETB-")) { senderAcc = "ETB-" + senderAcc; }
-            if(!receiverAcc.toUpperCase().startsWith("ETB-")) { receiverAcc = "ETB-" + receiverAcc; }
+            // Append prefix systematically for final view matrix
+            const senderAcc = "ETB-" + senderRaw;
+            const receiverAcc = "ETB-" + receiverRaw;
 
             const serviceCharge = 0.50;
             const vat = 0.08;
