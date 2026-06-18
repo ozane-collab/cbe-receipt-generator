@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBE Receipt Generator</title>
+    <title>CBE Receipt Generator Pro</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,7 +16,7 @@
             gap: 20px;
         }
 
-        /* 1. INPUT FORM STYLING */
+        /* INPUT FORM STYLING */
         .form-view {
             width: 100%;
             max-width: 375px;
@@ -68,90 +68,109 @@
             margin-top: 10px;
         }
 
-        /* 2. REALISTIC MOBILE RECEIPT STYLING */
+        /* STRICT MOBILE VIEW FOR SCREENSHOT */
         .phone-mockup {
             width: 100%;
-            max-width: 375px; /* Perfect Mobile Ratio for Screenshot */
-            min-height: 760px;
+            max-width: 375px; 
+            min-height: 800px;
             background: #7A1B8C; 
             position: relative;
             display: flex;
             flex-direction: column;
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
             overflow: hidden;
+            box-sizing: border-box;
         }
 
-        /* Header Style */
+        /* Top Header Styling */
         .header {
-            padding: 20px 20px 10px;
+            padding: 15px 20px 5px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
             color: white;
             position: relative;
         }
-        .success-title {
+        .left-header-block {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            margin-top: 5px;
+            gap: 4px;
+        }
+        /* Top Left Shield Icon */
+        .shield-icon {
+            width: 20px;
+            height: 24px;
+            fill: white;
+            margin-bottom: 2px;
         }
         .success-title h2 {
             margin: 0;
-            font-size: 22px;
+            font-size: 23px;
             font-weight: 600;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
         }
         .success-title p {
             margin: 0;
-            font-size: 13px;
+            font-size: 12.5px;
             opacity: 0.85;
         }
-        .scan-icon {
-            width: 32px;
-            height: 32px;
-            border: 2px solid rgba(255,255,255,0.7);
-            border-radius: 10px;
+        
+        /* Top Right Exact Scanner Icon */
+        .scan-btn-wrapper {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
-            opacity: 0.9;
-            margin-top: 5px;
+        }
+        .scanner-icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
         }
 
-        /* Big Floating Checkmark */
+        /* Central Stylized Checkmark Wrapper */
         .center-checkmark-wrap {
             width: 100%;
             display: flex;
             justify-content: center;
             position: absolute;
-            top: 55px;
+            top: 75px;
             z-index: 5;
         }
         .checkmark-circle {
-            width: 82px;
-            height: 82px;
+            width: 84px;
+            height: 84px;
             background: #7A1B8C;
             border: 5px solid white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 46px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        /* Stylized custom inner tick mimicking the real asset stroke */
+        .custom-tick {
+            width: 38px;
+            height: 20px;
+            border-left: 6px solid white;
+            border-bottom: 6px solid white;
+            transform: rotate(-48deg);
+            margin-top: -6px;
+            border-radius: 1px;
         }
 
-        /* Gray Tint App Background */
+        /* Main Container Gray Base Background */
         .receipt-body {
-            background: #F4F4F6; /* Exact CBE App Gray Tint */
+            background: #F4F4F6; 
             border-top-left-radius: 35px;
             border-top-right-radius: 35px;
             color: #111;
-            padding: 55px 16px 20px;
+            padding: 55px 14px 15px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -159,18 +178,18 @@
         }
         .msg-title {
             color: #444;
-            font-size: 14px;
-            margin-bottom: 16px;
+            font-size: 14.5px;
+            margin-bottom: 15px;
             font-weight: 500;
             text-align: center;
-            letter-spacing: 0.2px;
+            letter-spacing: 0.1px;
         }
         
-        /* Inner Clean White Container Box */
+        /* Pure White Internal Box Grid */
         .summary-box {
-            background: #FFFFFF; /* Pure White Content Box */
+            background: #FFFFFF; 
             border-radius: 20px;
-            padding: 20px 16px;
+            padding: 22px 16px;
             width: 100%;
             box-sizing: border-box;
             display: flex;
@@ -181,28 +200,31 @@
             font-size: 13px; 
             font-weight: 500; 
             display: block; 
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
+        
+        /* 9-LINE STRICT ALIGNMENT CONTAINER */
         .summary-text {
-            line-height: 1.6;
-            font-size: 14.5px;
+            line-height: 1.62;
+            font-size: 14.2px;
             color: #222;
             text-align: left;
+            word-spacing: 0.2px;
         }
         .bold {
             font-weight: 700;
             color: #000;
         }
         
-        /* QR Code Layout */
+        /* QR Container block */
         .qr-container {
-            margin: 20px 0;
+            margin: 18px 0;
             display: flex;
             justify-content: center;
             width: 100%;
         }
         
-        /* CBE Brand Footer Section Inside Box */
+        /* HIGH FIDELITY CBE LOGO EMBED */
         .cbe-logo-section {
             display: flex;
             align-items: center;
@@ -211,26 +233,15 @@
             width: 100%;
             text-align: left;
         }
-        /* Beautiful CSS representation of CBE Logo */
-        .cbe-gold-logo {
-            width: 36px;
-            height: 36px;
-            background: radial-gradient(circle, #E1BA50 30%, #CFA337 70%);
-            border-radius: 50%;
-            border: 1px dashed #A37B21;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 8px;
-            color: #4A2306;
+        .cbe-coin-vector {
+            width: 44px;
+            height: 44px;
             flex-shrink: 0;
-            box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
         }
         .cbe-text h4 {
             margin: 0;
             font-size: 13.5px;
-            color: #333;
+            color: #222;
             font-weight: 700;
         }
         .cbe-text p {
@@ -239,33 +250,32 @@
             color: #7A7A7A;
         }
 
-        /* Black Action Controls */
+        /* BOTTOM STRICT BLACK BAR CONTROLS WITH REQUISITE ICONS */
         .footer-buttons {
             display: flex;
             justify-content: space-around;
             width: 100%;
             margin-top: auto;
-            padding: 20px 0 15px;
-            border-top: 1px solid #EAEAEA;
+            padding: 16px 0 14px;
+            border-top: 1px solid #EBEBEB;
         }
         .action-item {
             display: flex;
             align-items: center;
             gap: 6px;
             cursor: pointer;
-            font-size: 13px;
-            color: #000000; /* Strict Black as requested */
+            font-size: 13.5px;
+            color: #000000; 
             font-weight: 600;
         }
         .action-item svg {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             fill: #000000;
         }
         
-        /* Styled Close App Button */
         .close-btn {
-            background: #DCDCDC;
+            background: #E5E5E7;
             color: #333;
             width: 100%;
             text-align: center;
@@ -275,80 +285,117 @@
             font-size: 15px;
             cursor: pointer;
             border: none;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
+    <!-- 1. SYSTEM CONTROL PANEL (FORM INPUT) -->
     <div id="formView" class="form-view">
         <h3>CBE Data Input</h3>
         
         <div class="form-group">
             <label>Amount (ETB)</label>
-            <input type="number" id="inputAmount" placeholder="Amount" step="0.01">
+            <input type="number" id="inputAmount" value="35.0" step="0.01">
         </div>
         
         <div class="form-group">
             <label>Sender Full Name</label>
-            <input type="text" id="inputSender" placeholder="Full Name">
+            <input type="text" id="inputSender" value="Ozyan Ekubay Tesfay">
         </div>
         
         <div class="form-group">
-            <label>Sender Account (Last 4 Digits)</label>
-            <input type="text" id="inputSenderAcc" placeholder="ETB-">
+            <label>Sender Account (4 Digits)</label>
+            <input type="text" id="inputSenderAcc" value="7665">
         </div>
         
         <div class="form-group">
             <label>Receiver Full Name</label>
-            <input type="text" id="inputReceiver" placeholder="Full Name">
+            <input type="text" id="inputReceiver" value="Tomas Teame Weldegebriel">
         </div>
         
         <div class="form-group">
-            <label>Receiver Account (Last 4 Digits)</label>
-            <input type="text" id="inputReceiverAcc" placeholder="ETB-">
+            <label>Receiver Account (4 Digits)</label>
+            <input type="text" id="inputReceiverAcc" value="2335">
         </div>
 
         <button class="submit-btn" onclick="generateReceipt()">Generate Receipt</button>
     </div>
 
+    <!-- 2. SCREENSHOT COMPATIBLE LIVE PREVIEW -->
     <div id="receiptView" class="phone-mockup" style="display: none;">
         <div class="header">
-            <div class="success-title">
-                <h2>Thank you</h2>
-                <p>Success</p>
+            <div class="left-header-block">
+                <!-- Custom Shield Vector Icon Top Left -->
+                <svg class="shield-icon" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
+                <div class="success-title">
+                    <h2>Thank you</h2>
+                    <p>Success</p>
+                </div>
             </div>
-            <div class="scan-icon">
-                <span style="border: 2px solid white; width:10px; height:10px; display:inline-block; border-radius:2px;"></span>
+            <!-- Custom Corner Scanner Box Top Right -->
+            <div class="scan-btn-wrapper">
+                <svg class="scanner-icon" viewBox="0 0 24 24">
+                    <path d="M4 8V4h4M16 4h4v4M4 16v4h4M16 20h4v-4M7 12h10"/>
+                </svg>
             </div>
         </div>
 
+        <!-- Custom Centered Rounded Checkmark -->
         <div class="center-checkmark-wrap">
-            <div class="checkmark-circle">✓</div>
+            <div class="checkmark-circle">
+                <div class="custom-tick"></div>
+            </div>
         </div>
 
         <div class="receipt-body">
             <div class="msg-title">Transaction Completed Successfully!</div>
             
             <div class="summary-box">
+                <span class="box-header-title">Transaction Summary</span>
+                
+                <!-- STRICT 9-LINE DISTRIBUTION WRAPPER -->
                 <div class="summary-text">
-                    <span class="box-header-title">Transaction Summary</span>
-                    ETB <span class="bold" id="recAmount">0.0</span> has been debited from 
-                    <span class="bold" id="recSender">Sender Name</span> 
-                    <span id="recSenderAcc">ETB-0000</span> for 
-                    <span class="bold" id="recReceiver">Receiver Name</span> 
-                    <span id="recReceiverAcc">ETB-0000</span> on 
-                    <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
-                    <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
-                    Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, 
-                    VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
+                    ETB <span class="bold" id="recAmount">35.0</span> has been debited from <span class="bold" id="recSender">Ozyan Ekubay Tesfay</span> <span id="recSenderAcc">ETB-7665</span> for <span class="bold" id="recReceiver">Tomas Teame Weldegebriel</span> <span id="recReceiverAcc">ETB-2335</span> on <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer Total Amount Debited: <span id="recTotal">35.61</span> ETB with Service Charge of ETB0.50, VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
                 </div>
 
                 <div class="qr-container">
-                    <img id="qrImage" src="" alt="QR" width="130" height="130">
+                    <img id="qrImage" src="" alt="QR" width="132" height="132">
                 </div>
 
+                <!-- DETAILED SVG EMBED GENERATION OF THE GOLD COIN LOGO (1000025503.jpg) -->
                 <div class="cbe-logo-section">
-                    <div class="cbe-gold-logo">CBE</div>
+                    <svg class="cbe-coin-vector" viewBox="0 0 100 100">
+                        <!-- Outer Wire loops background ripple -->
+                        <g stroke="#C29B47" stroke-width="1.2" fill="none" opacity="0.85">
+                            <ellipse cx="45" cy="40" rx="35" ry="12" transform="rotate(-30 45 40)"/>
+                            <ellipse cx="48" cy="43" rx="35" ry="12" transform="rotate(-25 48 43)"/>
+                            <ellipse cx="51" cy="46" rx="35" ry="12" transform="rotate(-20 51 46)"/>
+                            <ellipse cx="54" cy="49" rx="35" ry="12" transform="rotate(-15 54 49)"/>
+                            <ellipse cx="57" cy="52" rx="35" ry="12" transform="rotate(-10 57 52)"/>
+                            <ellipse cx="60" cy="55" rx="35" ry="12" transform="rotate(-5 60 55)"/>
+                        </g>
+                        <!-- Main Gold Coin Body -->
+                        <circle cx="50" cy="52" r="28" fill="url(#goldGradient)" stroke="#9E7A2F" stroke-width="1.5"/>
+                        <circle cx="50" cy="52" r="25" fill="none" stroke="#BA9544" stroke-width="1" stroke-dasharray="2,2"/>
+                        <!-- Inner Brand Stamp Initials -->
+                        <text x="50" y="59" font-family="'Times New Roman', serif" font-weight="900" font-size="21" fill="#4A2F0F" text-anchor="middle">BE</text>
+                        <!-- Tiny Ethiopic Decorative Circular text wrapper -->
+                        <path id="textPath" d="M 32,52 A 18,18 0 1,1 68,52" fill="none"/>
+                        <text font-size="4.5" font-weight="bold" fill="#5C3B11"><textPath href="#textPath" startOffset="10%">የኢትዮጵያ ንግድ ባንክ</textPath></text>
+                        
+                        <defs>
+                            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFF0C2"/>
+                                <stop offset="40%" stop-color="#D1A745"/>
+                                <stop offset="70%" stop-color="#B2872A"/>
+                                <stop offset="100%" stop-color="#735213"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
                     <div class="cbe-text">
                         <h4>Commercial Bank of Ethiopia</h4>
                         <p>The bank you can always rely on!</p>
@@ -356,15 +403,26 @@
                 </div>
             </div>
 
+            <!-- ACTIONS FOOTER BAR WITH SPECIFIED ICONS -->
             <div class="footer-buttons">
+                <!-- Receipt with $ Symbol inside -->
                 <div class="action-item">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14H7v-2h3v2zm0-4H7v-2h3v2zm0-4H7V7h3v2zm7 12h-5v-2h5v2zm0-4h-5v-2h5v2zm0-4h-5V7h5v2z"/>
+                        <path d="M11 8.5h2v1h-2zm0 4h2v1h-2z" fill="none"/>
+                        <text x="7" y="15" font-family="Arial" font-size="9.5" font-weight="900" fill="black">$</text>
+                    </svg>
                     Receipt
                 </div>
+                <!-- Screenshot Box with inner circle 'O' -->
                 <div class="action-item">
-                    <svg viewBox="0 0 24 24"><path d="M4 4h7V2H4c-1.1 0-2 .9-2 2v7h2V4zm6 9l-4 4h3v4h2v-4h3l-4-4zM20 2h-7v2h7v7h2V4c0-1.1-.9-2-2-2zm0 18h-7v2h7c1.1 0 2-.9 2-2v-7h-2v7zM4 13H2v7c0 1.1.9 2 2 2h7v-2H4v-7z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                        <circle cx="12" cy="12" r="2.2" fill="white"/>
+                    </svg>
                     Screenshot
                 </div>
+                <!-- Share Node System -->
                 <div class="action-item">
                     <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
                     Share
@@ -405,15 +463,14 @@
         function generateReceipt() {
             const amountInput = document.getElementById('inputAmount').value;
             const amount = parseFloat(amountInput) || 0;
-            const sender = document.getElementById('inputSender').value || "Unknown Sender";
-            let senderAcc = document.getElementById('inputSenderAcc').value || "0000";
-            const receiver = document.getElementById('inputReceiver').value || "Unknown Receiver";
-            let receiverAcc = document.getElementById('inputReceiverAcc').value || "0000";
+            const sender = document.getElementById('inputSender').value || "Ozyan Ekubay Tesfay";
+            let senderAcc = document.getElementById('inputSenderAcc').value || "7665";
+            const receiver = document.getElementById('inputReceiver').value || "Tomas Teame Weldegebriel";
+            let receiverAcc = document.getElementById('inputReceiverAcc').value || "2335";
 
             if (!senderAcc.startsWith("ETB-")) senderAcc = "ETB-" + senderAcc;
             if (!receiverAcc.startsWith("ETB-")) receiverAcc = "ETB-" + receiverAcc;
 
-            // Strict math calculation (Adds exactly 0.61 ETB total fee)
             const serviceFees = 0.50 + 0.08 + 0.03; 
             const totalDebited = amount + serviceFees;
 
