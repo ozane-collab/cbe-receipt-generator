@@ -99,7 +99,7 @@
         }
 
         .receipt-header {
-            padding: 24px 24px 10px 24px;
+            padding: 25px 24px 10px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -111,44 +111,40 @@
             gap: 14px;
         }
 
-        /* Shield Check Icon matching 1000027185.jpg */
+        /* Shield Icon matching 1000027185.jpg */
         .shield-icon {
-            font-size: 26px;
             color: white;
+            font-size: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .header-text h2 {
-            font-size: 24px;
+            font-size: 21px;
             font-weight: 600;
-            line-height: 1.1;
         }
 
         .header-text p {
             font-size: 13.5px;
             opacity: 0.85;
-            margin-top: 2px;
+            margin-top: -1px;
         }
 
-        /* Right Scan Icon Wrapper */
-        .scan-wrapper {
+        /* Dimmed circular container for scan icon matching 1000027185.jpg */
+        .scan-icon-container {
+            font-size: 18px;
+            color: white;
             background-color: rgba(255, 255, 255, 0.15);
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .scan-wrapper i {
-            font-size: 18px;
-            color: white;
-        }
-
-        /* MAIN RECEIPT CONTENT CONTAINER */
+        /* MAIN WHITE CONTAINER */
         .receipt-body {
             background-color: white;
             color: #333;
@@ -159,9 +155,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
-        /* Big Middle Purple Circle Checkmark Badge */
+        /* Main Big Purple Circle Checkmark Badge */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
@@ -174,20 +171,21 @@
             justify-content: center;
             font-size: 44px;
             margin-top: -46px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         }
 
         .success-banner {
             font-size: 15.5px;
             font-weight: 500;
             color: #222222;
-            margin-top: 16px;
-            margin-bottom: 22px;
+            margin-top: 15px;
+            margin-bottom: 20px;
             text-align: center;
             width: 100%;
+            letter-spacing: 0.1px;
         }
 
-        /* UNIFIED BACKGROUND CARD */
+        /* UNIFIED CARD: STYLES MATCHING 1000027207.jpg */
         .unified-transaction-card {
             background-color: #f4f4f6;
             border-radius: 20px;
@@ -215,7 +213,7 @@
             font-weight: 700;
         }
 
-        /* QR Code Inside Card */
+        /* QR Code Layout */
         .qr-inside-card {
             margin-top: 25px;
             margin-bottom: 25px;
@@ -230,24 +228,19 @@
             object-fit: contain;
         }
 
-        /* Commercial Bank Logo Footer Area */
+        /* CBE Custom Gold Coin Logo Footer matching 1000025503.jpg */
         .cbe-logo-footer {
             display: flex;
             align-items: center;
             gap: 12px;
             width: 100%;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #e2e2e4;
             padding-top: 15px;
         }
 
-        /* Actual Official Gold Logo styling placeholder from 1000025503.jpg */
-        .cbe-official-logo {
-            width: 40px;
-            height: 40px;
-            background-image: url('https://i.ibb.co/b5QvK8v/cbe-logo.png'); /* Fallback internet asset or inline render */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+        .cbe-custom-logo-svg {
+            width: 44px;
+            height: 44px;
         }
 
         .cbe-text h4 {
@@ -257,16 +250,16 @@
         }
 
         .cbe-text p {
-            font-size: 12px;
-            color: #666666;
+            font-size: 11.5px;
+            color: #757575;
         }
 
-        /* BOTTOM SYSTEM BUTTON BAR */
+        /* BOTTOM NAV BAR ACTIONS */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 14px 10px;
+            padding: 12px 10px;
             border-top: 1px solid #eeeeee;
             width: 100%;
         }
@@ -279,30 +272,29 @@
             gap: 8px;
             font-size: 14px;
             font-weight: 600;
-            color: #111111;
+            color: #212121;
             cursor: pointer;
         }
 
-        /* Custom compound wrapper icon to match 1000027200.jpg spec */
+        /* Custom Screenshot Target Style with the dot center inside matching 1000027200.jpg */
         .screenshot-icon-wrapper {
             position: relative;
             display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #111111;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #212121;
             border-radius: 4px;
         }
-        
-        .screenshot-icon-wrapper::after {
+        .screenshot-icon-wrapper::before {
             content: '';
             position: absolute;
-            width: 4px;
-            height: 4px;
-            border: 2px solid #111111;
-            border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 5px;
+            height: 5px;
+            background-color: #212121;
+            border-radius: 50%;
         }
 
         .close-container {
@@ -314,7 +306,7 @@
         .btn-close {
             width: 100%;
             background-color: #e0e0e4;
-            color: #111111;
+            color: #212121;
             border: none;
             padding: 14px;
             font-size: 16px;
@@ -343,8 +335,8 @@
             </div>
 
             <div class="input-group">
-                <label>Sender Account</label>
-                <input type="text" id="inputSenderAcc" placeholder="ETB-" required>
+                <label>Sender Account (ETB)</label>
+                <input type="text" id="inputSenderAcc" placeholder="ETB" required>
             </div>
 
             <div class="input-group">
@@ -353,8 +345,8 @@
             </div>
 
             <div class="input-group">
-                <label>Receiver Account</label>
-                <input type="text" id="inputReceiverAcc" placeholder="ETB-" required>
+                <label>Receiver Account (ETB)</label>
+                <input type="text" id="inputReceiverAcc" placeholder="ETB" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -365,6 +357,7 @@
         <div id="receiptPage" class="receipt-page">
             <div class="receipt-header">
                 <div class="header-left">
+                    <!-- Accurate Shield Icon representing 1000027185.jpg -->
                     <div class="shield-icon">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -373,56 +366,59 @@
                         <p>Success</p>
                     </div>
                 </div>
-                <div class="scan-wrapper">
+                <!-- Blurred circle scan tool layout container -->
+                <div class="scan-icon-container">
                     <i class="fa-solid fa-qrcode"></i>
                 </div>
             </div>
 
             <div class="receipt-body">
-                <!-- Big Middle Purple Circle Checkmark Badge -->
+                <!-- Big Center Purple Checkmark Circle Badge -->
                 <div class="big-check-badge">
                     <i class="fa-solid fa-check"></i>
                 </div>
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <!-- Unified Card Area -->
+                <!-- Unified Card: Layout matching 1000027207.jpg -->
                 <div class="unified-transaction-card">
                     <div class="card-title">Transaction Summary</div>
                     
                     <div class="transaction-text-content">
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
-                        <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
-                        <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
+                        <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc" class="bold-text">ETB-0000</span> for 
+                        <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc" class="bold-text">ETB-0000</span> on 
                         <span class="bold-text" id="displayDate">Jun 18, 2026 10:14 PM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
                     </div>
 
-                    <!-- QR Code Frame Inside Card -->
+                    <!-- Centered QR Code Area inside the Card container -->
                     <div class="qr-inside-card">
-                        <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE" alt="QR Code">
+                        <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE-Transfer" alt="QR Code">
                     </div>
 
-                    <!-- Commercial Bank Logo Footer with accurate layout drawing -->
+                    <!-- True CBE Golden Coin & Waves Emblem Vector recreation matching 1000025503.jpg -->
                     <div class="cbe-logo-footer">
-                        <svg width="40" height="40" viewBox="0 0 100 100">
-                            <!-- Outer Guilloche / Spirograph effect simplified representation matching 1000025503.jpg -->
-                            <circle cx="50" cy="50" r="46" fill="none" stroke="#b38f2b" stroke-width="1.5" stroke-dasharray="3 2"/>
-                            <circle cx="50" cy="50" r="42" fill="none" stroke="#b38f2b" stroke-width="1"/>
-                            <!-- Main Gold Coin Body -->
-                            <circle cx="50" cy="50" r="36" fill="#d4af37" stroke="#b38f2b" stroke-width="2"/>
-                            <circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="2 1"/>
-                            <!-- Inner CBE Stamp Ring Detail -->
-                            <circle cx="50" cy="50" r="26" fill="none" stroke="#947419" stroke-width="1.5"/>
-                            <!-- Stylized Initials Area representation -->
-                            <text x="50" y="57" font-size="22" font-weight="900" fill="#fff" text-anchor="middle" font-family="'Times New Roman', serif" letter-spacing="1">BE</text>
-                            <!-- Amharic upper/lower curve representation dots -->
-                            <circle cx="50" cy="20" r="2" fill="#fff"/>
-                            <circle cx="32" cy="26" r="1.5" fill="#fff"/>
-                            <circle cx="68" cy="26" r="1.5" fill="#fff"/>
-                            <circle cx="50" cy="80" r="2" fill="#fff"/>
+                        <svg class="cbe-custom-logo-svg" viewBox="0 0 120 120">
+                            <!-- Background spirals / wave layers recreated nicely in vector -->
+                            <g stroke="#b8860b" stroke-width="1.2" fill="none" opacity="0.75">
+                                <ellipse cx="50" cy="55" rx="35" ry="12" transform="rotate(-30 50 55)" />
+                                <ellipse cx="52" cy="57" rx="38" ry="14" transform="rotate(-28 52 57)" />
+                                <ellipse cx="54" cy="59" rx="41" ry="16" transform="rotate(-26 54 59)" />
+                                <ellipse cx="56" cy="61" rx="44" ry="18" transform="rotate(-24 56 61)" />
+                                <ellipse cx="58" cy="63" rx="47" ry="20" transform="rotate(-22 58 63)" />
+                                <ellipse cx="60" cy="65" rx="50" ry="22" transform="rotate(-20 60 65)" />
+                            </g>
+                            <!-- Golden Coin Outer gear edge body -->
+                            <circle cx="65" cy="55" r="30" fill="#cd9b1d" stroke="#8b6508" stroke-width="1" />
+                            <circle cx="65" cy="55" r="28" fill="#e5b83b" />
+                            <circle cx="65" cy="55" r="24" stroke="#8b6508" stroke-width="1.5" fill="none" stroke-dasharray="2,2" />
+                            <circle cx="65" cy="55" r="21" fill="#dfb030" stroke="#b8860b" stroke-width="1" />
+                            <!-- Central stylized CBE bold logo letters representation -->
+                            <text x="65" y="63" font-family="'Impact', Arial Black, sans-serif" font-size="22" fill="#7a5807" text-anchor="middle" font-weight="900">BC</text>
+                            <text x="64" y="62" font-family="'Impact', Arial Black, sans-serif" font-size="22" fill="#543d04" text-anchor="middle" font-weight="900">BC</text>
                         </svg>
                         <div class="cbe-text">
                             <h4>Commercial Bank of Ethiopia</h4>
@@ -432,11 +428,11 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Bar Layout -->
+            <!-- Bottom Nav Controls matching 1000027200.jpg specific design update -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
-                <!-- Screenshot button with customized internal center circle dot element -->
                 <button class="action-btn">
+                    <!-- Targeted center circle icon matching image 1000027200.jpg -->
                     <span class="screenshot-icon-wrapper"></span> Screenshot
                 </button>
                 <button class="action-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
@@ -452,26 +448,38 @@
         function generateReceiptData() {
             const amountInput = parseFloat(document.getElementById('inputAmount').value) || 0;
             const senderName = document.getElementById('inputSenderName').value;
-            let senderAcc = document.getElementById('inputSenderAcc').value;
+            let senderAcc = document.getElementById('inputSenderAcc').value.trim();
             const receiverName = document.getElementById('inputReceiverName').value;
-            let receiverAcc = document.getElementById('inputReceiverAcc').value;
+            let receiverAcc = document.getElementById('inputReceiverAcc').value.trim();
 
             if(!amountInput || !senderName || !senderAcc || !receiverName || !receiverAcc) {
                 alert("እባክዎ ሁሉንም መረጃዎች በትክክል ይሙሉ!");
                 return;
             }
 
-            // Standard prefix formatting
-            if(!senderAcc.toUpperCase().startsWith("ETB-")) { senderAcc = "ETB-" + senderAcc; }
-            if(!receiverAcc.toUpperCase().startsWith("ETB-")) { receiverAcc = "ETB-" + receiverAcc; }
+            // Standards parsing to structure accounts perfectly with ETB- prefix
+            if(!senderAcc.toUpperCase().startsWith("ETB-")) {
+                if(senderAcc.toUpperCase().startsWith("ETB")) {
+                    senderAcc = "ETB-" + senderAcc.substring(3);
+                } else {
+                    senderAcc = "ETB-" + senderAcc;
+                }
+            }
+            if(!receiverAcc.toUpperCase().startsWith("ETB-")) {
+                if(receiverAcc.toUpperCase().startsWith("ETB")) {
+                    receiverAcc = "ETB-" + receiverAcc.substring(3);
+                } else {
+                    receiverAcc = "ETB-" + receiverAcc;
+                }
+            }
 
-            // Dynamic safe balance parsing updates
+            // Calculation processing matching standard parameters
             const serviceCharge = 0.50;
             const vat = 0.08;
             const disasterRecovery = 0.03;
             const totalDebited = (amountInput + serviceCharge + vat + disasterRecovery).toFixed(2);
 
-            // Alphanumeric clean trace ID generator
+            // Generate unique transaction string sequence
             const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let randomTx = '';
             for (let i = 0; i < 10; i++) {
@@ -479,7 +487,7 @@
             }
             const txID = "FT" + randomTx;
 
-            // Calendar exact match configuration
+            // Generate clean modern real live dynamic timestamp formatting
             const now = new Date();
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             let hours = now.getHours();
@@ -490,21 +498,21 @@
             minutes = minutes < 10 ? '0'+minutes : minutes;
             const formattedDate = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${hours < 10 ? '0'+hours : hours}:${minutes} ${ampm}`;
 
-            // Push content values to HTML display elements
+            // Safe runtime DOM values insertion
             document.getElementById('displayAmount').innerText = amountInput.toFixed(1);
             document.getElementById('displaySender').innerText = senderName;
-            document.getElementById('displaySenderAcc').innerText = senderAcc.toUpperCase();
+            document.getElementById('displaySenderAcc').innerText = senderAcc;
             document.getElementById('displayReceiver').innerText = receiverName;
-            document.getElementById('displayReceiverAcc').innerText = receiverAcc.toUpperCase();
+            document.getElementById('displayReceiverAcc').innerText = receiverAcc;
             document.getElementById('displayDate').innerText = formattedDate;
             document.getElementById('displayTxID').innerText = txID;
             document.getElementById('displayTotalDebited').innerText = totalDebited;
 
-            // QR content API execution text compiler
-            const qrPayload = `CBE-TRANSFER|TX:${txID}|Total:${totalDebited}|Receiver:${receiverName}`;
+            // QR Code dynamic parameters endpoint call update
+            const qrPayload = `CBE-APP-RECEIPT|Tx:${txID}|Total:${totalDebited}ETB|Sender:${senderName}`;
             document.getElementById('qrCode').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrPayload)}`;
 
-            // Switch views layout display rules
+            // Switch presentation cards interface
             document.getElementById('formPage').style.display = 'none';
             document.getElementById('receiptPage').style.display = 'flex';
         }
