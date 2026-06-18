@@ -9,53 +9,88 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f3f4f6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
-            gap: 20px;
             justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
         }
-        /* Generator Form Style */
-        .form-container {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
+
+        /* Container for mobile simulation */
+        .app-container {
+            width: 100%;
+            max-width: 412px;
+            min-height: 100vh;
+            background: #ffffff;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            width: 320px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 1. FORM VIEW STYLING */
+        .form-view {
+            padding: 24px;
+            box-sizing: border-box;
+        }
+        .form-view h3 {
+            color: #7A1B8C;
+            font-size: 22px;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #7A1B8C;
+            padding-bottom: 8px;
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         .form-group label {
             display: block;
             font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 5px;
-            color: #333;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #444;
         }
         .form-group input {
             width: 100%;
-            padding: 8px;
+            padding: 12px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+            border: 1.5px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s;
         }
-        /* Mobile Receipt Preview Style */
-        .phone-mockup {
-            width: 360px;
-            background: #7A1B8C; /* CBE Purple Theme */
-            border-radius: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            overflow: hidden;
-            display: flex;
+        .form-group input:focus {
+            border-color: #7A1B8C;
+        }
+        .submit-btn {
+            background: #7A1B8C;
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 14px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(122,27,140,0.3);
+        }
+
+        /* 2. RECEIPT VIEW STYLING */
+        .receipt-view {
+            display: none; /* Hidden by default */
+            width: 100%;
+            background: #7A1B8C; 
             flex-direction: column;
             color: white;
             font-size: 14px;
         }
         .header {
-            padding: 25px 20px 15px;
+            padding: 30px 20px 15px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
         }
         .success-title {
             display: flex;
@@ -117,7 +152,7 @@
             font-weight: 700;
         }
         .qr-placeholder {
-            margin: 20px 0;
+            margin: 25px 0;
             width: 130px;
             height: 130px;
             background: #fff;
@@ -133,11 +168,6 @@
             margin-top: 5px;
             width: 100%;
         }
-        .cbe-logo-section img {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
-        }
         .cbe-text h4 {
             margin: 0;
             font-size: 13px;
@@ -152,133 +182,188 @@
             display: flex;
             justify-content: space-around;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 25px;
             border-top: 1px solid #ddd;
             padding-top: 15px;
             font-size: 12px;
             color: #333;
             font-weight: 500;
         }
-        .close-btn {
+        .back-btn {
             background: #E0E0E0;
             color: #333;
             width: 100%;
             text-align: center;
             padding: 12px;
             border-radius: 20px;
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: 600;
             font-size: 14px;
+            cursor: pointer;
+            border: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- INPUT FORM -->
-    <div class="form-container">
-        <h3>Receipt Data Input</h3>
-        <div class="form-group">
-            <label>Amount (ETB)</label>
-            <input type="number" id="inputAmount" value="35.0" step="0.1" oninput="updateReceipt()">
-        </div>
-        <div class="form-group">
-            <label>Sender Name</label>
-            <input type="text" id="inputSender" value="Ozyan Ekubay Tesfay" oninput="updateReceipt()">
-        </div>
-        <div class="form-group">
-            <label>Sender Account Identifier</label>
-            <input type="text" id="inputSenderAcc" value="ETB-7665" oninput="updateReceipt()">
-        </div>
-        <div class="form-group">
-            <label>Receiver Name</label>
-            <input type="text" id="inputReceiver" value="Tomas Teame Weldegebriel" oninput="updateReceipt()">
-        </div>
-        <div class="form-group">
-            <label>Receiver Account Identifier</label>
-            <input type="text" id="inputReceiverAcc" value="ETB-2335" oninput="updateReceipt()">
-        </div>
-    </div>
-
-    <!-- PREVIEW SCREEN -->
-    <div class="phone-mockup">
-        <div class="header">
-            <div class="success-title">
-                <div class="checkmark-circle">✓</div>
-                <div class="status-text">
-                    <h2>Thank you</h2>
-                    <p>Success</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="receipt-body">
-            <div class="msg-title">Transaction Completed Successfully!</div>
+    <div class="app-container">
+        
+        <div id="formView" class="form-view">
+            <h3>Receipt Generator</h3>
             
-            <div class="summary-box">
-                <span style="color: #888; font-size: 12px; font-weight: 600; display:block; margin-bottom:8px;">Transaction Summary</span>
-                ETB <span class="bold" id="recAmount">35.0</span> has been debited from 
-                <span class="bold" id="recSender">Ozyan Ekubay Tesfay</span> 
-                <span id="recSenderAcc">ETB-7665</span> for 
-                <span class="bold" id="recReceiver">Tomas Teame Weldegebriel</span> 
-                <span id="recReceiverAcc">ETB-2335</span> on 
-                <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
-                <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
-                Total Amount Debited: <span id="recTotal">35.61</span> ETB with Service Charge of ETB0.50, 
-                VAT (15%) of ETB<span id="recVat">0.08</span> and Disaster Recovery (5%) of ETB<span id="recDr">0.03</span>.
+            <div class="form-group">
+                <label>Amount (ETB)</label>
+                <input type="number" id="inputAmount" placeholder="e.g. 150.00" step="0.01">
+            </div>
+            
+            <div class="form-group">
+                <label>Sender Full Name</label>
+                <input type="text" id="inputSender" placeholder="e.g. Abebe Kebede">
+            </div>
+            
+            <div class="form-group">
+                <label>Sender Account (Last 4 Digits)</label>
+                <input type="text" id="inputSenderAcc" placeholder="e.g. 1234">
+            </div>
+            
+            <div class="form-group">
+                <label>Receiver Full Name</label>
+                <input type="text" id="inputReceiver" placeholder="e.g. Chala Alemu">
+            </div>
+            
+            <div class="form-group">
+                <label>Receiver Account (Last 4 Digits)</label>
+                <input type="text" id="inputReceiverAcc" placeholder="e.g. 5678">
             </div>
 
-            <!-- Simple QR Code Simulation -->
-            <div class="qr-placeholder">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=CBE-FT261699Y8SX" alt="QR" width="120">
-            </div>
+            <button class="submit-btn" onclick="generateReceipt()">Generate Receipt</button>
+        </div>
 
-            <div class="cbe-logo-section">
-                <!-- Fallback Text logo if image isn't local -->
-                <div class="cbe-text">
-                    <h4>Commercial Bank of Ethiopia</h4>
-                    <p>The bank you can always rely on!</p>
+        <div id="receiptView" class="receipt-view">
+            <div class="header">
+                <div class="success-title">
+                    <div class="checkmark-circle">✓</div>
+                    <div class="status-text">
+                        <h2>Thank you</h2>
+                        <p>Success</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-buttons">
-                <span>📄 Receipt</span>
-                <span>📷 Screenshot</span>
-                <span>🔗 Share</span>
+            <div class="receipt-body">
+                <div class="msg-title">Transaction Completed Successfully!</div>
+                
+                <div class="summary-box">
+                    <span style="color: #888; font-size: 12px; font-weight: 600; display:block; margin-bottom:8px;">Transaction Summary</span>
+                    ETB <span class="bold" id="recAmount">0.0</span> has been debited from 
+                    <span class="bold" id="recSender">Sender Name</span> 
+                    <span id="recSenderAcc">ETB-0000</span> for 
+                    <span class="bold" id="recReceiver">Receiver Name</span> 
+                    <span id="recReceiverAcc">ETB-0000</span> on 
+                    <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
+                    <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
+                    Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, 
+                    VAT (15%) of ETB<span id="recVat">0.08</span> and Disaster Recovery (5%) of ETB<span id="recDr">0.03</span>.
+                </div>
+
+                <div class="qr-placeholder">
+                    <img id="qrImage" src="" alt="QR" width="120">
+                </div>
+
+                <div class="cbe-logo-section">
+                    <div class="cbe-text">
+                        <h4>Commercial Bank of Ethiopia</h4>
+                        <p>The bank you can always rely on!</p>
+                    </div>
+                </div>
+
+                <div class="footer-buttons">
+                    <span>📄 Receipt</span>
+                    <span>📷 Screenshot</span>
+                    <span>🔗 Share</span>
+                </div>
+                
+                <button class="back-btn" onclick="goToForm()">Back to Form</button>
             </div>
-            
-            <div class="close-btn">Close</div>
         </div>
+
     </div>
 
     <script>
-        function updateReceipt() {
-            // Get input values
-            const amount = parseFloat(document.getElementById('inputAmount').value) || 0;
-            const sender = document.getElementById('inputSender').value;
-            const senderAcc = document.getElementById('inputSenderAcc').value;
-            const receiver = document.getElementById('inputReceiver').value;
-            const receiverAcc = document.getElementById('inputReceiverAcc').value;
+        // Function to create random Transaction ID
+        function generateRandomTxID() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = 'FT26';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
 
-            // Math calculations based on CBE rules in the receipt
+        // Current Live Date Formatter
+        function getFormattedDate() {
+            const now = new Date();
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const month = months[now.getMonth()];
+            const day = now.getDate();
+            const year = now.getFullYear();
+            
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            
+            return `${month} ${day}, ${year} ${hours}:${minutes} ${ampm}`;
+        }
+
+        function generateReceipt() {
+            // Read fields
+            const amountInput = document.getElementById('inputAmount').value;
+            const amount = parseFloat(amountInput) || 0;
+            const sender = document.getElementById('inputSender').value || "Unknown Sender";
+            let senderAcc = document.getElementById('inputSenderAcc').value || "0000";
+            const receiver = document.getElementById('inputReceiver').value || "Unknown Receiver";
+            let receiverAcc = document.getElementById('inputReceiverAcc').value || "0000";
+
+            // Format accounts to look like ETB-1234
+            if (!senderAcc.startsWith("ETB-")) senderAcc = "ETB-" + senderAcc;
+            if (!receiverAcc.startsWith("ETB-")) receiverAcc = "ETB-" + receiverAcc;
+
+            // Calculations
             const serviceCharge = 0.50;
-            const vat = (serviceCharge * 0.15); // 15% of service charge = 0.075 -> 0.08
-            const disasterRecovery = (serviceCharge * 0.05); // 5% of service charge = 0.025 -> 0.03
-            const totalDebited = amount + serviceCharge + 0.08 + 0.03; // matches screenshot rounding logic
+            const vat = 0.08;
+            const disasterRecovery = 0.03;
+            const totalDebited = amount + serviceCharge + vat + disasterRecovery;
 
-            // Inject into live preview
+            // Generate unique data for receipt
+            const txID = generateRandomTxID();
+            const liveDate = getFormattedDate();
+
+            // Inject data into fields
             document.getElementById('recAmount').innerText = amount.toFixed(1);
             document.getElementById('recSender').innerText = sender;
             document.getElementById('recSenderAcc').innerText = senderAcc;
             document.getElementById('recReceiver').innerText = receiver;
             document.getElementById('recReceiverAcc').innerText = receiverAcc;
-            
-            document.getElementById('recVat').innerText = vat.toFixed(2);
-            document.getElementById('recDr').innerText = disasterRecovery.toFixed(2);
+            document.getElementById('recDate').innerText = liveDate;
+            document.getElementById('recTxID').innerText = txID;
             document.getElementById('recTotal').innerText = totalDebited.toFixed(2);
+            
+            // Dynamic QR Code update
+            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=CBE-${txID}`;
+
+            // Switch Screen
+            document.getElementById('formView').style.display = 'none';
+            document.getElementById('receiptView').style.display = 'flex';
         }
 
-        // Run once on load
-        updateReceipt();
+        function goToForm() {
+            // Reset to form
+            document.getElementById('receiptView').style.display = 'none';
+            document.getElementById('formView').style.display = 'block';
+        }
     </script>
 </body>
 </html>
