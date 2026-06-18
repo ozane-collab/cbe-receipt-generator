@@ -7,59 +7,50 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f3f4f6;
+            background-color: #f0f2f5;
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-
-        /* Container for mobile simulation */
-        .app-container {
-            width: 100%;
-            max-width: 412px;
-            min-height: 100vh;
-            background: #ffffff;
-            position: relative;
+            padding: 20px 10px;
             display: flex;
             flex-direction: column;
-            box-sizing: border-box;
+            align-items: center;
+            gap: 20px;
         }
 
-        /* 1. INPUT FORM VIEW */
+        /* 1. INPUT FORM STYLING */
         .form-view {
-            padding: 24px;
+            width: 100%;
+            max-width: 375px;
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             box-sizing: border-box;
         }
         .form-view h3 {
             color: #7A1B8C;
-            font-size: 22px;
-            margin-top: 10px;
-            margin-bottom: 25px;
+            margin: 0 0 20px 0;
+            font-size: 20px;
             border-bottom: 2px solid #7A1B8C;
-            padding-bottom: 8px;
+            padding-bottom: 5px;
         }
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 14px;
         }
         .form-group label {
             display: block;
             font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 6px;
+            font-size: 13px;
+            margin-bottom: 5px;
             color: #444;
         }
         .form-group input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             box-sizing: border-box;
             border: 1.5px solid #ccc;
-            border-radius: 8px;
-            font-size: 15px;
+            border-radius: 6px;
+            font-size: 14px;
             outline: none;
-            transition: 0.2s;
         }
         .form-group input:focus {
             border-color: #7A1B8C;
@@ -69,287 +60,319 @@
             color: white;
             width: 100%;
             border: none;
-            padding: 14px;
-            border-radius: 25px;
-            font-size: 16px;
+            padding: 12px;
+            border-radius: 20px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 15px;
-            box-shadow: 0 4px 8px rgba(122,27,140,0.3);
+            margin-top: 10px;
         }
 
-        /* 2. RECEIPT VIEW */
-        .receipt-view {
-            display: none; /* Hidden by default */
+        /* 2. REALISTIC MOBILE RECEIPT STYLING */
+        .phone-mockup {
             width: 100%;
+            max-width: 375px; /* Perfect Mobile Ratio for Screenshot */
+            min-height: 760px;
             background: #7A1B8C; 
-            flex-direction: column;
-            color: white;
-            font-size: 14px;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-        .header {
-            padding: 25px 24px 15px;
+            position: relative;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* Header Style */
+        .header {
+            padding: 20px 20px 10px;
+            display: flex;
+            align-items: flex-start;
             justify-content: space-between;
+            color: white;
+            position: relative;
         }
         .success-title {
             display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 5px;
+        }
+        .success-title h2 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .success-title p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+        .scan-icon {
+            width: 32px;
+            height: 32px;
+            border: 2px solid rgba(255,255,255,0.7);
+            border-radius: 10px;
+            display: flex;
             align-items: center;
-            gap: 14px;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Big Floating Checkmark */
+        .center-checkmark-wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 55px;
+            z-index: 5;
         }
         .checkmark-circle {
-            width: 38px;
-            height: 38px;
-            background: white;
+            width: 82px;
+            height: 82px;
+            background: #7A1B8C;
+            border: 5px solid white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #7A1B8C;
-            font-size: 22px;
+            color: white;
+            font-size: 46px;
             font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .status-text h2 {
-            margin: 0;
-            font-size: 20px;
-            font-weight: 600;
-        }
-        .status-text p {
-            margin: 0;
-            font-size: 13px;
-            opacity: 0.9;
-        }
-        .scan-icon {
-            font-size: 22px;
-            opacity: 0.9;
-        }
-        
-        /* White Box Wrapper */
+
+        /* Gray Tint App Background */
         .receipt-body {
-            background: #F4F4F4;
-            border-top-left-radius: 28px;
-            border-top-right-radius: 28px;
+            background: #F4F4F6; /* Exact CBE App Gray Tint */
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
             color: #111;
-            padding: 20px 16px;
+            padding: 55px 16px 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .msg-title {
-            color: #333;
+            color: #444;
             font-size: 14px;
-            margin-top: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-weight: 500;
             text-align: center;
+            letter-spacing: 0.2px;
         }
         
-        /* The Big Consolidated Summary Box */
+        /* Inner Clean White Container Box */
         .summary-box {
-            background: #FFFFFF;
-            border-radius: 24px;
-            padding: 24px 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            background: #FFFFFF; /* Pure White Content Box */
+            border-radius: 20px;
+            padding: 20px 16px;
             width: 100%;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            align-items: center;
+        }
+        .box-header-title {
+            color: #B2B2B2; 
+            font-size: 13px; 
+            font-weight: 500; 
+            display: block; 
+            margin-bottom: 12px;
         }
         .summary-text {
-            line-height: 1.65;
+            line-height: 1.6;
             font-size: 14.5px;
             color: #222;
             text-align: left;
-            width: 100%;
-        }
-        .box-header-title {
-            color: #999; 
-            font-size: 13px; 
-            font-weight: 600; 
-            display: block; 
-            margin-bottom: 12px;
         }
         .bold {
             font-weight: 700;
             color: #000;
         }
         
-        /* QR Code Inside Box */
+        /* QR Code Layout */
         .qr-container {
-            margin: 25px 0 20px;
+            margin: 20px 0;
             display: flex;
             justify-content: center;
             width: 100%;
         }
-        .qr-container img {
-            padding: 4px;
-            border: 1px solid #eee;
-            border-radius: 4px;
-        }
         
-        /* CBE Logo Inside Box */
+        /* CBE Brand Footer Section Inside Box */
         .cbe-logo-section {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-top: 10px;
             padding-top: 15px;
-            border-top: 1px solid #f0f0f0;
             width: 100%;
             text-align: left;
         }
+        /* Beautiful CSS representation of CBE Logo */
         .cbe-gold-logo {
             width: 36px;
             height: 36px;
-            background: #E5C158; /* Fallback Gold Circle */
+            background: radial-gradient(circle, #E1BA50 30%, #CFA337 70%);
             border-radius: 50%;
+            border: 1px dashed #A37B21;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 10px;
-            color: #fff;
+            font-weight: 800;
+            font-size: 8px;
+            color: #4A2306;
             flex-shrink: 0;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
         }
         .cbe-text h4 {
             margin: 0;
             font-size: 13.5px;
             color: #333;
-            font-weight: 600;
+            font-weight: 700;
         }
         .cbe-text p {
-            margin: 2px 0 0;
-            font-size: 11.5px;
-            color: #777;
+            margin: 1px 0 0;
+            font-size: 11px;
+            color: #7A7A7A;
         }
 
-        /* Footer Icons Action Buttons */
+        /* Black Action Controls */
         .footer-buttons {
             display: flex;
             justify-content: space-around;
             width: 100%;
             margin-top: auto;
-            padding: 20px 0 10px;
-            font-size: 13px;
-            color: #222;
-            font-weight: 600;
+            padding: 20px 0 15px;
+            border-top: 1px solid #EAEAEA;
         }
         .action-item {
             display: flex;
             align-items: center;
             gap: 6px;
             cursor: pointer;
+            font-size: 13px;
+            color: #000000; /* Strict Black as requested */
+            font-weight: 600;
+        }
+        .action-item svg {
+            width: 16px;
+            height: 16px;
+            fill: #000000;
         }
         
-        /* Close Button */
+        /* Styled Close App Button */
         .close-btn {
-            background: #E2E2E2;
+            background: #DCDCDC;
             color: #333;
             width: 100%;
             text-align: center;
             padding: 14px;
             border-radius: 24px;
-            margin-top: 10px;
             font-weight: 600;
             font-size: 15px;
             cursor: pointer;
             border: none;
-            outline: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
+    <div id="formView" class="form-view">
+        <h3>CBE Data Input</h3>
         
-        <div id="formView" class="form-view">
-            <h3>Receipt Generator</h3>
-            
-            <div class="form-group">
-                <label>Amount (ETB)</label>
-                <input type="number" id="inputAmount" placeholder="Amount" step="0.01">
-            </div>
-            
-            <div class="form-group">
-                <label>Sender Full Name</label>
-                <input type="text" id="inputSender" placeholder="Full Name">
-            </div>
-            
-            <div class="form-group">
-                <label>Sender Account (Last 4 Digits)</label>
-                <input type="text" id="inputSenderAcc" placeholder="ETB-">
-            </div>
-            
-            <div class="form-group">
-                <label>Receiver Full Name</label>
-                <input type="text" id="inputReceiver" placeholder="Full Name">
-            </div>
-            
-            <div class="form-group">
-                <label>Receiver Account (Last 4 Digits)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="ETB-">
-            </div>
-
-            <button class="submit-btn" onclick="generateReceipt()">Generate Receipt</button>
+        <div class="form-group">
+            <label>Amount (ETB)</label>
+            <input type="number" id="inputAmount" placeholder="Amount" step="0.01">
+        </div>
+        
+        <div class="form-group">
+            <label>Sender Full Name</label>
+            <input type="text" id="inputSender" placeholder="Full Name">
+        </div>
+        
+        <div class="form-group">
+            <label>Sender Account (Last 4 Digits)</label>
+            <input type="text" id="inputSenderAcc" placeholder="ETB-">
+        </div>
+        
+        <div class="form-group">
+            <label>Receiver Full Name</label>
+            <input type="text" id="inputReceiver" placeholder="Full Name">
+        </div>
+        
+        <div class="form-group">
+            <label>Receiver Account (Last 4 Digits)</label>
+            <input type="text" id="inputReceiverAcc" placeholder="ETB-">
         </div>
 
-        <div id="receiptView" class="receipt-view">
-            <div class="header">
-                <div class="success-title">
-                    <div class="checkmark-circle">✓</div>
-                    <div class="status-text">
-                        <h2>Thank you</h2>
-                        <p>Success</p>
-                    </div>
-                </div>
-                <div class="scan-icon">🔲</div>
+        <button class="submit-btn" onclick="generateReceipt()">Generate Receipt</button>
+    </div>
+
+    <div id="receiptView" class="phone-mockup" style="display: none;">
+        <div class="header">
+            <div class="success-title">
+                <h2>Thank you</h2>
+                <p>Success</p>
             </div>
-
-            <div class="receipt-body">
-                <div class="msg-title">Transaction Completed Successfully!</div>
-                
-                <div class="summary-box">
-                    <div class="summary-text">
-                        <span class="box-header-title">Transaction Summary</span>
-                        ETB <span class="bold" id="recAmount">0.0</span> has been debited from 
-                        <span class="bold" id="recSender">Sender Name</span> 
-                        <span id="recSenderAcc">ETB-0000</span> for 
-                        <span class="bold" id="recReceiver">Receiver Name</span> 
-                        <span id="recReceiverAcc">ETB-0000</span> on 
-                        <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
-                        <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
-                        Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, 
-                        VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
-                    </div>
-
-                    <div class="qr-container">
-                        <img id="qrImage" src="" alt="QR" width="125" height="125">
-                    </div>
-
-                    <div class="cbe-logo-section">
-                        <div class="cbe-gold-logo">CBE</div>
-                        <div class="cbe-text">
-                            <h4>Commercial Bank of Ethiopia</h4>
-                            <p>The bank you can always rely on!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-buttons">
-                    <div class="action-item">📋 Receipt</div>
-                    <div class="action-item">📷 Screenshot</div>
-                    <div class="action-item">🔗 Share</div>
-                </div>
-                
-                <button class="close-btn" onclick="goToForm()">Close</button>
+            <div class="scan-icon">
+                <span style="border: 2px solid white; width:10px; height:10px; display:inline-block; border-radius:2px;"></span>
             </div>
         </div>
 
+        <div class="center-checkmark-wrap">
+            <div class="checkmark-circle">✓</div>
+        </div>
+
+        <div class="receipt-body">
+            <div class="msg-title">Transaction Completed Successfully!</div>
+            
+            <div class="summary-box">
+                <div class="summary-text">
+                    <span class="box-header-title">Transaction Summary</span>
+                    ETB <span class="bold" id="recAmount">0.0</span> has been debited from 
+                    <span class="bold" id="recSender">Sender Name</span> 
+                    <span id="recSenderAcc">ETB-0000</span> for 
+                    <span class="bold" id="recReceiver">Receiver Name</span> 
+                    <span id="recReceiverAcc">ETB-0000</span> on 
+                    <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
+                    <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
+                    Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, 
+                    VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
+                </div>
+
+                <div class="qr-container">
+                    <img id="qrImage" src="" alt="QR" width="130" height="130">
+                </div>
+
+                <div class="cbe-logo-section">
+                    <div class="cbe-gold-logo">CBE</div>
+                    <div class="cbe-text">
+                        <h4>Commercial Bank of Ethiopia</h4>
+                        <p>The bank you can always rely on!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-buttons">
+                <div class="action-item">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    Receipt
+                </div>
+                <div class="action-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h7V2H4c-1.1 0-2 .9-2 2v7h2V4zm6 9l-4 4h3v4h2v-4h3l-4-4zM20 2h-7v2h7v7h2V4c0-1.1-.9-2-2-2zm0 18h-7v2h7c1.1 0 2-.9 2-2v-7h-2v7zM4 13H2v7c0 1.1.9 2 2 2h7v-2H4v-7z"/></svg>
+                    Screenshot
+                </div>
+                <div class="action-item">
+                    <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+                    Share
+                </div>
+            </div>
+            
+            <button class="close-btn" onclick="goToForm()">Close</button>
+        </div>
     </div>
 
     <script>
@@ -390,7 +413,7 @@
             if (!senderAcc.startsWith("ETB-")) senderAcc = "ETB-" + senderAcc;
             if (!receiverAcc.startsWith("ETB-")) receiverAcc = "ETB-" + receiverAcc;
 
-            // Strict values as requested
+            // Strict math calculation (Adds exactly 0.61 ETB total fee)
             const serviceFees = 0.50 + 0.08 + 0.03; 
             const totalDebited = amount + serviceFees;
 
@@ -406,7 +429,7 @@
             document.getElementById('recTxID').innerText = txID;
             document.getElementById('recTotal').innerText = totalDebited.toFixed(2);
             
-            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=125x125&data=CBE-${txID}`;
+            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=CBE-${txID}`;
 
             document.getElementById('formView').style.display = 'none';
             document.getElementById('receiptView').style.display = 'flex';
