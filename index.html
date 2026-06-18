@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBE Receipt Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        /* Generator Form Style */
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 320px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        /* Mobile Receipt Preview Style */
+        .phone-mockup {
+            width: 360px;
+            background: #7A1B8C; /* CBE Purple Theme */
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-size: 14px;
+        }
+        .header {
+            padding: 25px 20px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .success-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .checkmark-circle {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7A1B8C;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .status-text h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .status-text p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        .receipt-body {
+            background: #F4F4F4;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            color: #111;
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .msg-title {
+            color: #555;
+            font-size: 13px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .summary-box {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 14px;
+            color: #222;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .bold {
+            font-weight: 700;
+        }
+        .qr-placeholder {
+            margin: 20px 0;
+            width: 130px;
+            height: 130px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+        }
+        .cbe-logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+            width: 100%;
+        }
+        .cbe-logo-section img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+        .cbe-text h4 {
+            margin: 0;
+            font-size: 13px;
+            color: #333;
+        }
+        .cbe-text p {
+            margin: 0;
+            font-size: 11px;
+            color: #777;
+        }
+        .footer-buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #333;
+            font-weight: 500;
+        }
+        .close-btn {
+            background: #E0E0E0;
+            color: #333;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INPUT FORM -->
+    <div class="form-container">
+        <h3>Receipt Data Input</h3>
+        <div class="form-group">
+            <label>Amount (ETB)</label>
+            <input type="number" id="inputAmount" value="35.0" step="0.1" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Sender Name</label>
+            <input type="text" id="inputSender" value="Ozyan Ekubay Tesfay" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Sender Account Identifier</label>
+            <input type="text" id="inputSenderAcc" value="ETB-7665" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Receiver Name</label>
+            <input type="text" id="inputReceiver" value="Tomas Teame Weldegebriel" oninput="updateReceipt()">
+        </div>
+        <div class="form-group">
+            <label>Receiver Account Identifier</label>
+            <input type="text" id="inputReceiverAcc" value="ETB-2335" oninput="updateReceipt()">
+        </div>
+    </div>
+
+    <!-- PREVIEW SCREEN -->
+    <div class="phone-mockup">
+        <div class="header">
+            <div class="success-title">
+                <div class="checkmark-circle">✓</div>
+                <div class="status-text">
+                    <h2>Thank you</h2>
+                    <p>Success</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="receipt-body">
+            <div class="msg-title">Transaction Completed Successfully!</div>
+            
+            <div class="summary-box">
+                <span style="color: #888; font-size: 12px; font-weight: 600; display:block; margin-bottom:8px;">Transaction Summary</span>
+                ETB <span class="bold" id="recAmount">35.0</span> has been debited from 
+                <span class="bold" id="recSender">Ozyan Ekubay Tesfay</span> 
+                <span id="recSenderAcc">ETB-7665</span> for 
+                <span class="bold" id="recReceiver">Tomas Teame Weldegebriel</span> 
+                <span id="recReceiverAcc">ETB-2335</span> on 
+                <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
+                <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
+                Total Amount Debited: <span id="recTotal">35.61</span> ETB with Service Charge of ETB0.50, 
+                VAT (15%) of ETB<span id="recVat">0.08</span> and Disaster Recovery (5%) of ETB<span id="recDr">0.03</span>.
+            </div>
+
+            <!-- Simple QR Code Simulation -->
+            <div class="qr-placeholder">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=CBE-FT261699Y8SX" alt="QR" width="120">
+            </div>
+
+            <div class="cbe-logo-section">
+                <!-- Fallback Text logo if image isn't local -->
+                <div class="cbe-text">
+                    <h4>Commercial Bank of Ethiopia</h4>
+                    <p>The bank you can always rely on!</p>
+                </div>
+            </div>
+
+            <div class="footer-buttons">
+                <span>📄 Receipt</span>
+                <span>📷 Screenshot</span>
+                <span>🔗 Share</span>
+            </div>
+            
+            <div class="close-btn">Close</div>
+        </div>
+    </div>
+
+    <script>
+        function updateReceipt() {
+            // Get input values
+            const amount = parseFloat(document.getElementById('inputAmount').value) || 0;
+            const sender = document.getElementById('inputSender').value;
+            const senderAcc = document.getElementById('inputSenderAcc').value;
+            const receiver = document.getElementById('inputReceiver').value;
+            const receiverAcc = document.getElementById('inputReceiverAcc').value;
+
+            // Math calculations based on CBE rules in the receipt
+            const serviceCharge = 0.50;
+            const vat = (serviceCharge * 0.15); // 15% of service charge = 0.075 -> 0.08
+            const disasterRecovery = (serviceCharge * 0.05); // 5% of service charge = 0.025 -> 0.03
+            const totalDebited = amount + serviceCharge + 0.08 + 0.03; // matches screenshot rounding logic
+
+            // Inject into live preview
+            document.getElementById('recAmount').innerText = amount.toFixed(1);
+            document.getElementById('recSender').innerText = sender;
+            document.getElementById('recSenderAcc').innerText = senderAcc;
+            document.getElementById('recReceiver').innerText = receiver;
+            document.getElementById('recReceiverAcc').innerText = receiverAcc;
+            
+            document.getElementById('recVat').innerText = vat.toFixed(2);
+            document.getElementById('recDr').innerText = disasterRecovery.toFixed(2);
+            document.getElementById('recTotal').innerText = totalDebited.toFixed(2);
+        }
+
+        // Run once on load
+        updateReceipt();
+    </script>
+</body>
+</html>
