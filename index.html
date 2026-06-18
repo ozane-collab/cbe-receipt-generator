@@ -159,18 +159,18 @@
             align-items: center;
         }
 
-        /* Big Middle Purple Circle Badge with Square-profiled sharp Checkmark */
+        /* Big Middle Purple Circle Badge with customized Sharp Outward Checkmark */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
-            width: 90px;
-            height: 90px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             border: 6px solid white;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: -45px;
+            margin-top: -44px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
@@ -179,8 +179,8 @@
             height: 48px;
             fill: none;
             stroke: white;
-            stroke-width: 5.5; /* Large prominent stroke thickness */
-            stroke-linecap: square; /* Clean square corner profile cuts */
+            stroke-width: 5.5;
+            stroke-linecap: square; /* Gives an angular/sharp structured look */
             stroke-linejoin: miter;
         }
 
@@ -194,21 +194,21 @@
             width: 100%;
         }
 
-        /* DEEPENED / DARKER BACKGROUND TRANSACTIONS CARD */
+        /* DEEPENED INNER BACKGROUND BOX WITH CLOSER SPACING */
         .unified-transaction-card {
-            background-color: #ebedf0; /* Noticeably darker/solid background shade */
+            background-color: #eef0f4; /* Deepened, solid grey filling */
             border-radius: 20px;
             padding: 18px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            margin-bottom: 15px; /* Enhanced separation gap from actions row */
-            box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.12);
+            margin-bottom: 0px; /* Reduced to bring it flush with the action bar */
+            box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.08);
         }
 
         .card-title {
             font-size: 14px;
-            color: #8c8c90;
+            color: #8e9094;
             font-weight: 500;
             margin-bottom: 12px;
         }
@@ -245,7 +245,7 @@
             align-items: center;
             gap: 12px;
             width: 100%;
-            border-top: 1px solid #d1d1d6;
+            border-top: 1px solid #d4d6da;
             padding-top: 12px;
         }
 
@@ -260,18 +260,18 @@
             color: #666666;
         }
 
-        /* BOTTOM NAV ACTIONS BAR */
+        /* BOTTOM NAV ACTIONS BAR (Distance closed up perfectly) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 10px 10px; 
+            padding: 12px 10px; 
             border-top: 1px solid #eeeeee;
             width: 100%;
             margin-top: auto; 
         }
 
-        /* Action layout buttons converted to clean light normal weights */
+        /* Reset font to normal weight to look like regular normal text */
         .action-btn {
             background: none;
             border: none;
@@ -279,28 +279,27 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            font-weight: 400; /* Normal weight typography style */
-            color: #3a3a3a;
+            font-weight: 400; /* Normal regular text format */
+            color: #111111;
             cursor: pointer;
         }
 
-        /* Enriched icon frame dimension scales */
+        /* Enhanced bigger size icons inside action items */
         .action-btn i {
-            font-size: 18px; /* Bigger standard icons */
-            color: #111111;
+            font-size: 18px; /* Slightly scaled up icon size */
         }
 
         .target-corner-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 25px;  
-            height: 25px; 
+            width: 26px;  
+            height: 26px; 
         }
 
         .close-container {
             background-color: #ffffff;
-            padding: 0 20px 12px 20px;
+            padding: 0 20px 10px 20px; 
             width: 100%;
         }
 
@@ -336,7 +335,7 @@
 
             <div class="input-group">
                 <label>Sender Account (ETB-)</label>
-                <input type="text" id="inputSenderAcc" placeholder="4 Digits Only" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                <input type="text" id="inputSenderAcc" placeholder="ETB-" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             </div>
 
             <div class="input-group">
@@ -346,7 +345,7 @@
 
             <div class="input-group">
                 <label>Receiver Account (ETB-)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="4 Digits Only" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                <input type="text" id="inputReceiverAcc" placeholder="ETB-" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -392,7 +391,7 @@
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
-                        <span class="bold-text" id="displayDate">Jun 19, 2026 12:20 AM</span> with transaction ID: 
+                        <span class="bold-text" id="displayDate">Jun 19, 2026 12:32 AM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
@@ -426,7 +425,7 @@
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
-                    <div class="target-corner-icon">
+                    <div class="target-corner-icon" style="margin-right: -4px;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3" stroke-linecap="round">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
                             <circle cx="12" cy="12" r="3.5" stroke="#111111" stroke-width="2.3" fill="none"/>
@@ -456,7 +455,6 @@
                 return;
             }
 
-            // Standard prefix addition logic
             if(!senderAcc.toUpperCase().startsWith("ETB-")) { senderAcc = "ETB-" + senderAcc; }
             if(!receiverAcc.toUpperCase().startsWith("ETB-")) { receiverAcc = "ETB-" + receiverAcc; }
 
