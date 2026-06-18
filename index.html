@@ -27,7 +27,6 @@
             max-width: 412px;
             background-color: #ffffff;
             min-height: 100vh;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -86,7 +85,6 @@
             border-radius: 25px;
             margin-top: 30px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(123, 31, 162, 0.3);
         }
 
         /* PAGE 2: CBE RECEIPT STYLES */
@@ -160,7 +158,7 @@
             align-items: center;
         }
 
-        /* Big Middle Purple Circle Badge with customized Sharp Outward Checkmark like 1000027226.jpg */
+        /* Thin Checkmark Badge inside Circle (#1000027226.jpg Layout) */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
@@ -172,20 +170,16 @@
             align-items: center;
             justify-content: center;
             margin-top: -44px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            position: relative;
         }
 
-        /* Perfectly matched exact sharp checkmark layout that pops out cleanly */
         .big-check-badge svg {
-            width: 54px;
-            height: 54px;
+            width: 42px;
+            height: 42px;
             fill: none;
             stroke: white;
-            stroke-width: 6.8;
-            stroke-linecap: square;
-            stroke-linejoin: miter;
-            transform: translate(1px, -1px);
+            stroke-width: 4.5; /* Made thinner to match image */
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .success-banner {
@@ -198,21 +192,21 @@
             width: 100%;
         }
 
-        /* EXACT COLOR FROM 1000027233.jpg (#f2f2f2) */
+        /* FIXED COLOR MIX TO #f2f2f2 & SHADOWS COMPLETELY REMOVED */
         .unified-transaction-card {
-            background-color: #f2f2f2; 
+            background-color: #f2f2f2; /* Exact color picker layout from image */
             border-radius: 20px;
             padding: 18px;
             width: 100%;
             display: flex;
             flex-direction: column;
             margin-bottom: 0px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+            box-shadow: none; /* Shadow removed */
         }
 
         .card-title {
             font-size: 14px;
-            color: #9e9e9e;
+            color: #8e9094;
             font-weight: 500;
             margin-bottom: 12px;
         }
@@ -249,7 +243,7 @@
             align-items: center;
             gap: 12px;
             width: 100%;
-            border-top: 1px solid #e2e2e6;
+            border-top: 1px solid #d4d6da;
             padding-top: 12px;
         }
 
@@ -264,12 +258,12 @@
             color: #666666;
         }
 
-        /* BOTTOM NAV ACTIONS BAR (Flush spacing layout matching 1000027232.jpg) */
+        /* BOTTOM NAV ACTIONS BAR (Perfect spacing close up) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 10px 10px; 
+            padding: 12px 10px; 
             border-top: 1px solid #eeeeee;
             width: 100%;
             margin-top: auto; 
@@ -380,16 +374,16 @@
             </div>
 
             <div class="receipt-body">
-                <!-- Outward Sharp Structured Checkmark Matrix -->
+                <!-- Clean, thin stroke checkmark centered flawlessly -->
                 <div class="big-check-badge">
                     <svg viewBox="0 0 24 24">
-                        <polyline points="18 7 9 16.5 5 12.5"></polyline>
+                        <polyline points="20 7 9 17 4 12"></polyline>
                     </svg>
                 </div>
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <!-- Gray Box Matrix (#f2f2f2) -->
+                <!-- Grey Fill Card Block Frame -->
                 <div class="unified-transaction-card">
                     <div class="card-title">Transaction Summary</div>
                     
@@ -397,7 +391,7 @@
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
-                        <span class="bold-text" id="displayDate">Jun 19, 2026 12:41 AM</span> with transaction ID: 
+                        <span class="bold-text" id="displayDate">Jun 19, 2026 12:53 AM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
@@ -430,7 +424,7 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Bar Framework -->
+            <!-- Bottom Actions Bar Framework (Flush Close Spacing Layout) -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
@@ -464,6 +458,7 @@
                 return;
             }
 
+            // Ensures structural ETB- format is always mapped for receipt delivery layout
             if(!senderAcc.toUpperCase().startsWith("ETB-")) { senderAcc = "ETB-" + senderAcc; }
             if(!receiverAcc.toUpperCase().startsWith("ETB-")) { receiverAcc = "ETB-" + receiverAcc; }
 
