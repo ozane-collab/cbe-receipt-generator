@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CBE Receipt Generator</title>
-    <!-- FontAwesome for icons -->
+    <!-- FontAwesome for fallback icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -98,9 +98,9 @@
             display: none; 
         }
 
-        /* HEADER REMODELING (1000027185.jpg) */
+        /* Matches 1000027185.jpg exactly */
         .receipt-header {
-            padding: 30px 24px 15px 24px;
+            padding: 28px 24px 12px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -109,89 +109,106 @@
         .header-left {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
         }
 
-        /* Exact Shield Icon */
-        .shield-check-icon {
-            font-size: 24px;
-            color: white;
+        /* Shield Check Icon Matching 1000027185.jpg */
+        .shield-check {
+            width: 32px;
+            height: 35px;
+            background-color: white;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 50%);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #7b1fa2;
+            font-size: 16px;
+            position: relative;
         }
 
         .header-text h2 {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 25px;
+            font-weight: 600;
             line-height: 1.1;
         }
 
         .header-text p {
             font-size: 14px;
-            opacity: 0.9;
+            opacity: 0.85;
             margin-top: 2px;
         }
 
-        /* Circle Scanner Icon Wrapper */
-        .scan-circle-wrapper {
-            background-color: rgba(255, 255, 255, 0.15);
-            width: 46px;
-            height: 46px;
+        /* QR Scanner Top Icon Style */
+        .scanner-badge {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .scan-circle-wrapper i {
-            font-size: 20px;
-            color: white;
+        .scanner-icon {
+            width: 22px;
+            height: 22px;
+            border: 2.5px solid white;
+            border-radius: 6px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .scanner-icon::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border: 2.5px solid white;
+            border-radius: 50%;
         }
 
-        /* MAIN RECEIPT BODY CONTAINER */
+        /* MAIN BODY AREA */
         .receipt-body {
             background-color: white;
             color: #333;
             border-top-left-radius: 35px;
             border-top-right-radius: 35px;
             flex-grow: 1;
-            padding: 0 20px 15px 20px;
+            padding: 0 18px 15px 18px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Main Big Purple Checkmark Circle */
+        /* Large Circle Checkmark Badge */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
-            width: 90px;
-            height: 90px;
+            width: 92px;
+            height: 92px;
             border-radius: 50%;
             border: 6px solid white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
-            margin-top: -45px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            font-size: 42px;
+            margin-top: -46px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
         }
 
         .success-banner {
-            font-size: 15px;
+            font-size: 15.5px;
             font-weight: 600;
-            color: #212121;
-            margin-top: 16px;
+            color: #1c1c1c;
+            margin-top: 15px;
             margin-bottom: 20px;
             text-align: center;
-            width: 100%;
         }
 
-        /* UNIFIED TRANSACTION CARD */
+        /* CARD HOLDING REMAINING STUFF TOGETHER */
         .unified-transaction-card {
-            background-color: #f4f4f6;
-            border-radius: 20px;
+            background-color: #f3f3f5;
+            border-radius: 22px;
             padding: 22px;
             width: 100%;
             display: flex;
@@ -206,17 +223,15 @@
         }
 
         .transaction-text-content {
-            font-size: 14.5px;
+            font-size: 15px;
             line-height: 1.6;
-            color: #111111;
-            text-align: left;
+            color: #0c0c0c;
         }
 
         .bold-text {
             font-weight: 700;
         }
 
-        /* QR Code Layout Inside Card */
         .qr-inside-card {
             margin-top: 25px;
             margin-bottom: 25px;
@@ -226,12 +241,12 @@
         }
 
         .qr-inside-card img {
-            width: 150px;
-            height: 150px;
+            width: 145px;
+            height: 145px;
             object-fit: contain;
         }
 
-        /* OFFICIAL CBE LOGO FOOTER INTEGRATION (1000025503.jpg) */
+        /* CUSTOM CSS CBE LOGO REPRESENTING 1000025503.jpg */
         .cbe-logo-footer {
             display: flex;
             align-items: center;
@@ -241,70 +256,66 @@
             padding-top: 16px;
         }
 
-        /* Pure CSS implementation of the dynamic CBE decorative emblem lines */
-        .cbe-official-logo-box {
+        .cbe-logo-artistic {
             position: relative;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 38px;
+            height: 38px;
             flex-shrink: 0;
         }
 
-        .cbe-logo-bg-lines {
+        /* Concentric decorative background lines mimicking the logo */
+        .cbe-logo-lines {
             position: absolute;
             width: 100%;
             height: 100%;
-            border: 1px solid #bfa054;
+            border: 1px solid #c29d38;
             border-radius: 50% 40% 50% 30%;
             transform: rotate(-15deg);
-            opacity: 0.4;
         }
-
-        .cbe-logo-bg-lines::before {
+        .cbe-logo-lines::before {
             content: '';
             position: absolute;
             width: 90%;
-            height: 90%;
-            border: 1px solid #bfa054;
+            height: 120%;
+            border: 1.2px solid #bfa043;
             border-radius: 50%;
-            top: 5%;
-            left: 5%;
+            top: -4px;
+            left: 5px;
         }
 
+        /* Golden coin center */
         .cbe-gold-coin {
-            background: linear-gradient(135deg, #e5c060 0%, #bfa054 50%, #967633 100%);
-            width: 32px;
-            height: 32px;
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background: linear-gradient(135deg, #e5c060 0%, #b08d2b 100%);
             border-radius: 50%;
-            border: 1px dashed #ffffff;
+            top: 6px;
+            left: 6px;
+            border: 1.5px solid #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
         }
 
-        .cbe-inner-text {
+        .cbe-gold-coin i {
             color: white;
             font-size: 11px;
-            font-weight: 900;
-            letter-spacing: -0.5px;
         }
 
         .cbe-text h4 {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
-            color: #333333;
+            color: #383838;
         }
 
         .cbe-text p {
-            font-size: 12px;
-            color: #757575;
+            font-size: 11.5px;
+            color: #6d6d72;
         }
 
-        /* BOTTOM NAV BAR (1000027200.jpg Correction) */
+        /* BOTTOM ACTION BAR BUTTONS */
         .action-bar {
             background-color: #ffffff;
             display: flex;
@@ -322,28 +333,26 @@
             gap: 8px;
             font-size: 14px;
             font-weight: 600;
-            color: #212121;
+            color: #1c1c1e;
             cursor: pointer;
         }
 
-        /* Modified custom layout for the unique screenshot dot icon */
-        .screenshot-icon-custom {
+        /* Screenshot Custom Icon Matching 1000027200.jpg */
+        .screenshot-custom-icon {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #1c1c1e;
+            border-radius: 4px;
+            position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            width: 18px;
-            height: 18px;
-            border: 2px solid #212121;
-            border-radius: 4px;
         }
-
-        .screenshot-icon-custom::after {
+        .screenshot-custom-icon::after {
             content: '';
-            position: absolute;
             width: 4px;
             height: 4px;
-            background-color: #212121;
+            background-color: #1c1c1e;
             border-radius: 50%;
         }
 
@@ -355,10 +364,10 @@
 
         .btn-close {
             width: 100%;
-            background-color: #e0e0e4;
-            color: #212121;
+            background-color: #e4e4e8;
+            color: #1c1c1e;
             border: none;
-            padding: 14px;
+            padding: 13.5px;
             font-size: 16px;
             font-weight: 600;
             border-radius: 25px;
@@ -386,7 +395,7 @@
 
             <div class="input-group">
                 <label>Sender Account (ETB-)</label>
-                <input type="text" id="inputSenderAcc" placeholder="ETB-XXXX" required>
+                <input type="text" id="inputSenderAcc" placeholder="ETB-" required>
             </div>
 
             <div class="input-group">
@@ -396,7 +405,7 @@
 
             <div class="input-group">
                 <label>Receiver Account (ETB-)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="ETB-XXXX" required>
+                <input type="text" id="inputReceiverAcc" placeholder="ETB-" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -405,31 +414,31 @@
 
         <!-- PAGE 2: LIVE CBE RECEIPT VIEW -->
         <div id="receiptPage" class="receipt-page">
-            <!-- Header section matching 1000027185.jpg layout -->
+            <!-- Header layout matching 1000027185.jpg -->
             <div class="receipt-header">
                 <div class="header-left">
-                    <div class="shield-check-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
+                    <div class="shield-check">
+                        <i class="fa-solid fa-check"></i>
                     </div>
                     <div class="header-text">
                         <h2>Thank you</h2>
                         <p>Success</p>
                     </div>
                 </div>
-                <div class="scan-circle-wrapper">
-                    <i class="fa-solid fa-qrcode"></i>
+                <div class="scanner-badge">
+                    <div class="scanner-icon"></div>
                 </div>
             </div>
 
             <div class="receipt-body">
-                <!-- Middle Top Big Check Badge -->
+                <!-- Large Central Purple Check Circle -->
                 <div class="big-check-badge">
                     <i class="fa-solid fa-check"></i>
                 </div>
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <!-- Unified Summary Area -->
+                <!-- Unified Card Wrap Layout Container -->
                 <div class="unified-transaction-card">
                     <div class="card-title">Transaction Summary</div>
                     
@@ -443,17 +452,17 @@
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
                     </div>
 
-                    <!-- QR Frame integration inside the block -->
+                    <!-- QR matrix box integration -->
                     <div class="qr-inside-card">
                         <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE-Transfer" alt="QR Code">
                     </div>
 
-                    <!-- Authentic Looking CBE Logo Placement matching 1000025503.jpg -->
+                    <!-- Authentic Logo rendering layout (1000025503.jpg style) -->
                     <div class="cbe-logo-footer">
-                        <div class="cbe-official-logo-box">
-                            <div class="cbe-logo-bg-lines"></div>
+                        <div class="cbe-artistic-logo">
+                            <div class="cbe-logo-lines"></div>
                             <div class="cbe-gold-coin">
-                                <span class="cbe-inner-text">CBE</span>
+                                <i class="fa-solid fa-check"></i>
                             </div>
                         </div>
                         <div class="cbe-text">
@@ -464,10 +473,10 @@
                 </div>
             </div>
 
-            <!-- Action controls with modified specific dot element layout -->
+            <!-- Bottom Action Controls layout (1000027200.jpg fixes) -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
-                <button class="action-btn"><span class="screenshot-icon-custom"></span> Screenshot</button>
+                <button class="action-btn"><span class="screenshot-custom-icon"></span> Screenshot</button>
                 <button class="action-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
             </div>
             <div class="close-container">
@@ -486,18 +495,21 @@
             let receiverAcc = document.getElementById('inputReceiverAcc').value;
 
             if(!amountInput || !senderName || !senderAcc || !receiverName || !receiverAcc) {
-                alert("እባክዎ ሁሉንም ፎርሞች በአግባቡ ይሙሉ!");
+                alert("እባክዎ መረጃዎችን በትክክል ይሙሉ!");
                 return;
             }
 
+            // Normalizes display appearance strings
             if(!senderAcc.startsWith("ETB-")) { senderAcc = "ETB-" + senderAcc; }
             if(!receiverAcc.startsWith("ETB-")) { receiverAcc = "ETB-" + receiverAcc; }
 
+            // Standard accounting fees calculus execution 
             const serviceCharge = 0.50;
             const vat = 0.08;
             const disasterRecovery = 0.03;
             const totalDebited = (amountInput + serviceCharge + vat + disasterRecovery).toFixed(2);
 
+            // RefID Generation code matrices
             const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let randomTx = '';
             for (let i = 0; i < 10; i++) {
@@ -505,6 +517,7 @@
             }
             const txID = "FT" + randomTx;
 
+            // Formatted date layout matrix strings
             const now = new Date();
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             let hours = now.getHours();
@@ -515,6 +528,7 @@
             minutes = minutes < 10 ? '0'+minutes : minutes;
             const formattedDate = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${hours < 10 ? '0'+hours : hours}:${minutes} ${ampm}`;
 
+            // Inject updates securely into document nodes
             document.getElementById('displayAmount').innerText = amountInput.toFixed(1);
             document.getElementById('displaySender').innerText = senderName;
             document.getElementById('displaySenderAcc').innerText = senderAcc;
@@ -524,9 +538,11 @@
             document.getElementById('displayTxID').innerText = txID;
             document.getElementById('displayTotalDebited').innerText = totalDebited;
 
-            const qrPayload = `CBE-TRANSFER|ID:${txID}|Total:${totalDebited}|From:${senderName}`;
+            // Set dynamic endpoints matching inputs
+            const qrPayload = `CBE|Tx:${txID}|Total:${totalDebited}`;
             document.getElementById('qrCode').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrPayload)}`;
 
+            // Switch page screens
             document.getElementById('formPage').style.display = 'none';
             document.getElementById('receiptPage').style.display = 'flex';
         }
