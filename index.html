@@ -98,9 +98,9 @@
             display: none; 
         }
 
-        /* Increased top padding to let the purple color flow down more */
+        /* Increased top and bottom padding to expand the purple area height and push the body down */
         .receipt-header {
-            padding: 32px 16px 14px 16px; 
+            padding: 48px 16px 24px 16px; 
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -138,7 +138,7 @@
             margin-top: 1px;
         }
 
-        /* Top Right Wrapper Icon with 4-corner crosshair and 'o' layout */
+        /* Top Right Wrapper Icon with a hollow "o" circle in the middle */
         .scan-wrapper-custom {
             background-color: rgba(255, 255, 255, 0.12);
             width: 44px;
@@ -156,7 +156,7 @@
             border-top-left-radius: 35px;
             border-top-right-radius: 35px;
             flex-grow: 1;
-            padding: 0 16px 0px 16px; /* Removed bottom padding to pull content down */
+            padding: 0 16px 0px 16px; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -196,7 +196,6 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            margin-bottom: 0px; /* Locked down tightly */
         }
 
         .card-title {
@@ -253,15 +252,15 @@
             color: #666666;
         }
 
-        /* BOTTOM NAV ACTIONS BAR (Tightened gap at the red line mark area) */
+        /* BOTTOM NAV ACTIONS BAR */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 8px 10px; /* Reduced vertical padding to close up space */
+            padding: 8px 10px; 
             border-top: 1px solid #eeeeee;
             width: 100%;
-            margin-top: auto; /* Pulls itself flush against the white body content */
+            margin-top: auto; 
         }
 
         .action-btn {
@@ -276,7 +275,7 @@
             cursor: pointer;
         }
 
-        /* Target Icon style with 4 corners and middle 'o' */
+        /* Target Icon style with a hollow "o" circle in the middle */
         .target-corner-icon {
             display: inline-flex;
             align-items: center;
@@ -324,7 +323,7 @@
 
             <div class="input-group">
                 <label>Sender Account (Last 4 Digits)</label>
-                <input type="text" id="inputSenderAcc" placeholder="ETB-XXXX" required>
+                <input type="text" id="inputSenderAcc" placeholder="ETB-" required>
             </div>
 
             <div class="input-group">
@@ -334,7 +333,7 @@
 
             <div class="input-group">
                 <label>Receiver Account (Last 4 Digits)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="ETB-XXXX" required>
+                <input type="text" id="inputReceiverAcc" placeholder="ETB-" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -356,11 +355,11 @@
                     </div>
                 </div>
                 <div class="scan-wrapper-custom">
-                    <!-- Top Corner Target Focus Icon -->
+                    <!-- Top Corner Target Focus Icon with a hollow center circle -->
                     <div class="target-corner-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
-                            <circle cx="12" cy="12" r="2.5" fill="white" stroke="none"/>
+                            <circle cx="12" cy="12" r="2.5" stroke="white" stroke-width="2.5" fill="none"/>
                         </svg>
                     </div>
                 </div>
@@ -382,7 +381,7 @@
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
-                        <span class="bold-text" id="displayDate">Jun 18, 2026 11:13 PM</span> with transaction ID: 
+                        <span class="bold-text" id="displayDate">Jun 18, 2026 11:26 PM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
@@ -415,15 +414,15 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Bar Layout with Closed Up Space Frame -->
+            <!-- Bottom Actions Bar Layout -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
-                    <!-- Bottom Corner Target Focus Icon for Screenshot -->
+                    <!-- Bottom Corner Target Focus Icon with a hollow center circle for Screenshot -->
                     <div class="target-corner-icon">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
-                            <circle cx="12" cy="12" r="2.5" fill="#111111" stroke="none"/>
+                            <circle cx="12" cy="12" r="2.5" stroke="#111111" stroke-width="2.5" fill="none"/>
                         </svg>
                     </div> 
                     Screenshot
