@@ -98,9 +98,9 @@
             display: none; 
         }
 
-        /* Increased top background extension, elements pushed down */
+        /* Increased top padding to increase top purple height */
         .receipt-header {
-            padding: 44px 16px 14px 16px; 
+            padding: 45px 16px 14px 16px; 
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -138,11 +138,11 @@
             margin-top: 1px;
         }
 
-        /* Top Right Wrapper Icon with 4 corners and a large 'O' inside */
+        /* Scaled up Header Scanner circle framework */
         .scan-wrapper-custom {
             background-color: rgba(255, 255, 255, 0.12);
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -183,12 +183,12 @@
             font-weight: 500;
             color: #222222;
             margin-top: 14px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             text-align: center;
             width: 100%;
         }
 
-        /* TRANSACTION CARD WITH SHADOW AND LIGHT SHADE */
+        /* TRANSACTION CARD WITH DROP SHADOW ON BOTTOM SIDE */
         .unified-transaction-card {
             background-color: #f4f4f6;
             border-radius: 20px;
@@ -196,7 +196,8 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06); /* Added elegant shadow frame */
+            margin-bottom: 4px;
+            box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.12); /* Subtle bottom drop shadow */
         }
 
         .card-title {
@@ -253,12 +254,12 @@
             color: #666666;
         }
 
-        /* BOTTOM NAV ACTIONS BAR - Tightened up space completely */
+        /* BOTTOM NAV ACTIONS BAR - Tightened vertically to clear middle blank space */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 6px 10px; /* Highly condensed padding */
+            padding: 6px 10px; 
             border-top: 1px solid #eeeeee;
             width: 100%;
             margin-top: auto; 
@@ -276,18 +277,18 @@
             cursor: pointer;
         }
 
-        /* Target Icon style with 4 corners and a clear large 'O' circle inside */
+        /* Enlarged target container icon featuring hollow 'O' in center */
         .target-corner-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 20px;
-            height: 20px;
+            width: 24px;  /* Increased size */
+            height: 24px; /* Increased size */
         }
 
         .close-container {
             background-color: #ffffff;
-            padding: 0 20px 10px 20px; /* Reduced bottom gap */
+            padding: 0 20px 10px 20px; /* Shifted closely up */
             width: 100%;
         }
 
@@ -296,7 +297,7 @@
             background-color: #e0e0e4;
             color: #111111;
             border: none;
-            padding: 12px;
+            padding: 14px;
             font-size: 16px;
             font-weight: 600;
             border-radius: 25px;
@@ -324,8 +325,8 @@
 
             <div class="input-group">
                 <label>Sender Account (4 Digits Only)</label>
-                <!-- Restricting input explicitly to numbers and 4 digits max length -->
-                <input type="text" id="inputSenderAcc" placeholder="e.g. 1234" maxlength="4" pattern="\d{4}" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                <!-- Numeric inputmode combined with numeric regex block to completely block alphabet characters -->
+                <input type="text" id="inputSenderAcc" placeholder="4 Digits Only" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             </div>
 
             <div class="input-group">
@@ -335,8 +336,7 @@
 
             <div class="input-group">
                 <label>Receiver Account (4 Digits Only)</label>
-                <!-- Restricting input explicitly to numbers and 4 digits max length -->
-                <input type="text" id="inputReceiverAcc" placeholder="e.g. 5678" maxlength="4" pattern="\d{4}" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                <input type="text" id="inputReceiverAcc" placeholder="4 Digits Only" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -358,11 +358,11 @@
                     </div>
                 </div>
                 <div class="scan-wrapper-custom">
-                    <!-- Top Corner Target Focus Icon with Large 'O' Circle -->
+                    <!-- Top Corner Focus Framework featuring crisp centered hollow circle 'O' -->
                     <div class="target-corner-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
-                            <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2.5" fill="none"/>
+                            <circle cx="12" cy="12" r="3.5" stroke="white" stroke-width="2.2" fill="none"/>
                         </svg>
                     </div>
                 </div>
@@ -376,7 +376,7 @@
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <!-- Shortened Card Layout Area -->
+                <!-- Shortened Card Layout Area with Dynamic Bottom Shadow Matrix -->
                 <div class="unified-transaction-card">
                     <div class="card-title">Transaction Summary</div>
                     
@@ -395,7 +395,7 @@
                         <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE" alt="QR Code">
                     </div>
 
-                    <!-- Commercial Bank Logo Footer Area -->
+                    <!-- Commercial Bank Logo Footer with official gold coin rendering -->
                     <div class="cbe-logo-footer">
                         <svg width="36" height="36" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="46" fill="none" stroke="#b38f2b" stroke-width="1.5" stroke-dasharray="3 2"/>
@@ -417,15 +417,15 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Bar Layout with Closed Up Space Frame -->
+            <!-- Bottom Actions Bar Framework -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
-                    <!-- Bottom Corner Target Focus Icon for Screenshot with Large 'O' Circle -->
+                    <!-- Bottom Corner Target Focus featuring centered hollow 'O' -->
                     <div class="target-corner-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3" stroke-linecap="round">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
-                            <circle cx="12" cy="12" r="4" stroke="#111111" stroke-width="2.5" fill="none"/>
+                            <circle cx="12" cy="12" r="3.5" stroke="#111111" stroke-width="2.3" fill="none"/>
                         </svg>
                     </div> 
                     Screenshot
@@ -452,13 +452,9 @@
                 return;
             }
 
-            if(senderAcc.length !== 4 || receiverAcc.length !== 4) {
-                alert("የአካውንት ቁጥር የግድ 4 አሃዝ መሆን አለበት!");
-                return;
-            }
-
-            senderAcc = "ETB-" + senderAcc;
-            receiverAcc = "ETB-" + receiverAcc;
+            // Standard conversion validation layout
+            if(!senderAcc.toUpperCase().startsWith("ETB-")) { senderAcc = "ETB-" + senderAcc; }
+            if(!receiverAcc.toUpperCase().startsWith("ETB-")) { receiverAcc = "ETB-" + receiverAcc; }
 
             const serviceCharge = 0.50;
             const vat = 0.08;
