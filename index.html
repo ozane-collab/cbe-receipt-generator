@@ -27,7 +27,6 @@
             max-width: 412px;
             background-color: #ffffff;
             min-height: 100vh;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -60,7 +59,6 @@
             margin-bottom: 6px;
         }
 
-        /* Container to look like input but hold fixed ETB- text */
         .account-input-wrapper {
             display: flex;
             align-items: center;
@@ -129,8 +127,9 @@
             display: none; 
         }
 
+        /* INCREASING HEADER HEIGHT (KUMETU KELAY) */
         .receipt-header {
-            padding: 45px 16px 14px 16px; 
+            padding: 65px 16px 20px 16px; 
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -191,7 +190,7 @@
             align-items: center;
         }
 
-        /* Big Middle Purple Circle Badge with Slim Edge-to-Edge Custom Checkmark */
+        /* Big Middle Purple Circle Badge */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
@@ -206,12 +205,13 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
+        /* FIXED CHECKMARK: Left line is shorter (ater ybeleh) */
         .big-check-badge svg {
-            width: 62px; /* Set to stretch exactly from edge to edge */
+            width: 62px; 
             height: 62px;
             fill: none;
             stroke: white;
-            stroke-width: 4.5; /* Slender thin line format */
+            stroke-width: 4.5; 
             stroke-linecap: square;
             stroke-linejoin: miter;
         }
@@ -226,16 +226,16 @@
             width: 100%;
         }
 
-        /* UPDATED BACKING BOX MATRICES WITH NO SHADOW AND #f2f2f2 BACKGROUND */
+        /* UNIFIED TRANSPARENT BOX WITH NO SHADOW */
         .unified-transaction-card {
-            background-color: #f2f2f2; /* Exact color picker option matching */
+            background-color: #f2f2f2; 
             border-radius: 20px;
             padding: 18px;
             width: 100%;
             display: flex;
             flex-direction: column;
             margin-bottom: 0px; 
-            box-shadow: none; /* Completely removed shadow matrix layout */
+            box-shadow: none; 
         }
 
         .card-title {
@@ -256,7 +256,7 @@
             font-weight: 700;
         }
 
-        /* QR Code Frame Inside Card */
+        /* QR Code Frame */
         .qr-inside-card {
             margin-top: 15px;
             margin-bottom: 15px;
@@ -271,7 +271,7 @@
             object-fit: contain;
         }
 
-        /* Commercial Bank Logo Footer Area */
+        /* CBE Footer Inside Card */
         .cbe-logo-footer {
             display: flex;
             align-items: center;
@@ -292,15 +292,15 @@
             color: #666666;
         }
 
-        /* BOTTOM NAV ACTIONS BAR (Distance perfectly flush to zero spacing gap) */
+        /* EXTRA TIGHT ACTION BAR & CLOSE BUTTON (KFTET ATFAW) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 12px 10px; 
+            padding: 10px 10px 5px 10px; /* Reduced bottom padding to squeeze tightly */
             border-top: 1px solid #eeeeee;
             width: 100%;
-            margin-top: auto; 
+            margin-top: 0px; /* Completely removed spacing */
         }
 
         .action-btn {
@@ -329,7 +329,7 @@
 
         .close-container {
             background-color: #ffffff;
-            padding: 0 20px 10px 20px; 
+            padding: 5px 20px 10px 20px; /* Brought up as close as possible */
             width: 100%;
         }
 
@@ -365,8 +365,8 @@
             </div>
 
             <div class="input-group">
-                <label>Sender Account (4 Digits)</label>
-                <!-- Styled wrapper to display fixed ETB- cleanly inside box -->
+                <!-- Label changed to ETB- only -->
+                <label>Sender Account (ETB-)</label>
                 <div class="account-input-wrapper">
                     <span class="account-prefix">ETB-</span>
                     <input type="text" id="inputSenderAcc" placeholder="4 Digits" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
@@ -379,7 +379,8 @@
             </div>
 
             <div class="input-group">
-                <label>Receiver Account (4 Digits)</label>
+                <!-- Label changed to ETB- only -->
+                <label>Receiver Account (ETB-)</label>
                 <div class="account-input-wrapper">
                     <span class="account-prefix">ETB-</span>
                     <input type="text" id="inputReceiverAcc" placeholder="4 Digits" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
@@ -415,16 +416,15 @@
             </div>
 
             <div class="receipt-body">
-                <!-- Slim Edge-to-Edge Slender Checkmark Layout Framework -->
+                <!-- Adjusted path: left tick stroke is made shorter (M5 12.5 L9.5 17) -->
                 <div class="big-check-badge">
                     <svg viewBox="0 0 24 24">
-                        <path d="M3 11.5 L9.5 18 L21 6" />
+                        <path d="M5.5 12.5 L9.5 17 L21 6.5" />
                     </svg>
                 </div>
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <!-- Zero-Shadow #f2f2f2 Solid Grey Card Summary -->
                 <div class="unified-transaction-card">
                     <div class="card-title">Transaction Summary</div>
                     
@@ -438,12 +438,10 @@
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
                     </div>
 
-                    <!-- QR Code Frame Inside Card -->
                     <div class="qr-inside-card">
                         <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE" alt="QR Code">
                     </div>
 
-                    <!-- Commercial Bank Logo Footer Area -->
                     <div class="cbe-logo-footer">
                         <svg width="36" height="36" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="46" fill="none" stroke="#b38f2b" stroke-width="1.5" stroke-dasharray="3 2"/>
@@ -465,7 +463,7 @@
                 </div>
             </div>
 
-            <!-- Bottom Actions Bar Framework -->
+            <!-- Tightly bound actions and close triggers -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
@@ -499,7 +497,6 @@
                 return;
             }
 
-            // Append prefix systematically for final view matrix
             const senderAcc = "ETB-" + senderRaw;
             const receiverAcc = "ETB-" + receiverRaw;
 
