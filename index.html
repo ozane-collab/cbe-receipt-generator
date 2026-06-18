@@ -138,15 +138,14 @@
 
         .scan-wrapper-custom {
             background-color: rgba(255, 255, 255, 0.12);
-            width: 46px;
-            height: 46px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* MAIN RECEIPT BODY */
         .receipt-body {
             background-color: white;
             color: #333;
@@ -159,20 +158,30 @@
             align-items: center;
         }
 
-        /* NEW STYLE: Big Rectangular Checkmark Badge (Arat Meazn Krts) */
+        /* Big Middle Purple Circle Badge (The circle remains perfectly round) */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
             width: 90px;
             height: 90px;
-            border-radius: 18px; /* Smooth square corner layout */
+            border-radius: 50%;
             border: 6px solid white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 52px; /* Extra large checkmark inside */
             margin-top: -45px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Custom SVG Checkmark featuring blocky, sharp square-corner geometry */
+        .square-checkmark {
+            width: 38px;
+            height: 38px;
+            fill: none;
+            stroke: white;
+            stroke-width: 6;
+            stroke-linecap: square;
+            stroke-linejoin: miter;
         }
 
         .success-banner {
@@ -185,7 +194,7 @@
             width: 100%;
         }
 
-        /* CARD WITH BOLD SHADOW AROUND ALL FOUR SIDES */
+        /* UNIFIED TRANSACTION CARD - MAXIMUM PROMINENT SOLID DROP SHADOW */
         .unified-transaction-card {
             background-color: #f4f4f6;
             border-radius: 20px;
@@ -193,8 +202,8 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            margin-bottom: 12px; /* Fixed distance before action area */
-            box-shadow: 0 0 18px rgba(0, 0, 0, 0.14); /* Full perimeter shadow */
+            margin-bottom: 24px; /* Perfectly adjusted distance from the share tools below */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18); /* Deep solid premium appearance shadow */
         }
 
         .card-title {
@@ -215,7 +224,6 @@
             font-weight: 700;
         }
 
-        /* QR Code Frame Inside Card */
         .qr-inside-card {
             margin-top: 15px;
             margin-bottom: 15px;
@@ -230,7 +238,6 @@
             object-fit: contain;
         }
 
-        /* Commercial Bank Logo Footer Area */
         .cbe-logo-footer {
             display: flex;
             align-items: center;
@@ -256,41 +263,42 @@
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 10px 10px; 
+            padding: 8px 10px; 
             border-top: 1px solid #eeeeee;
             width: 100%;
             margin-top: auto; 
         }
 
-        /* Increased size across text and layout containers */
+        /* Regularized typography font configurations to render as simple text weights */
         .action-btn {
             background: none;
             border: none;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 15.5px; /* Increased font size */
-            font-weight: 600;
-            color: #111111;
+            font-size: 14px;
+            font-weight: 400; /* Regular lightweight font rendering */
+            color: #222222;
             cursor: pointer;
         }
 
+        /* Noticeable upscale applied directly to action tool icon vectors */
         .action-btn i {
-            font-size: 18px; /* Increased standard icon sizes */
+            font-size: 20px; /* Enhanced icon sizes */
+            color: #111111;
         }
 
-        /* Enlarged target focus framework icon */
         .target-corner-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 26px;  
-            height: 26px; 
+            width: 26px; /* Scaled up cleanly */
+            height: 26px;
         }
 
         .close-container {
             background-color: #ffffff;
-            padding: 0 20px 12px 20px; 
+            padding: 0 20px 14px 20px; 
             width: 100%;
         }
 
@@ -316,7 +324,7 @@
             
             <div class="input-group">
                 <label>Amount (ETB)</label>
-                <input type="number" id="inputAmount" placeholder="Amount" stroke="none" step="0.01" required>
+                <input type="number" id="inputAmount" placeholder="Amount" step="0.01" required>
             </div>
 
             <div class="input-group">
@@ -325,8 +333,8 @@
             </div>
 
             <div class="input-group">
-                <label>Sender Account (4 Digits Only)</label>
-                <input type="text" id="inputSenderAcc" placeholder="ETB-" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                <label>Sender Account</label>
+                <input type="text" id="inputSenderAcc" placeholder="ETB-" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             </div>
 
             <div class="input-group">
@@ -335,8 +343,8 @@
             </div>
 
             <div class="input-group">
-                <label>Receiver Account (4 Digits Only)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="ETB-" inputmode="numeric" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                <label>Receiver Account</label>
+                <input type="text" id="inputReceiverAcc" placeholder="ETB-" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -358,9 +366,9 @@
                 </div>
                 <div class="scan-wrapper-custom">
                     <div class="target-corner-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.3" stroke-linecap="round">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
-                            <circle cx="12" cy="12" r="3.5" stroke="white" stroke-width="2.3" fill="none"/>
+                            <circle cx="12" cy="12" r="3.5" stroke="white" stroke-width="2.2" fill="none"/>
                         </svg>
                     </div>
                 </div>
@@ -368,7 +376,9 @@
 
             <div class="receipt-body">
                 <div class="big-check-badge">
-                    <i class="fa-solid fa-check"></i>
+                    <svg class="square-checkmark" viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
                 </div>
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
@@ -380,7 +390,7 @@
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
-                        <span class="bold-text" id="displayDate">Jun 18, 2026 11:45 PM</span> with transaction ID: 
+                        <span class="bold-text" id="displayDate">Jun 19, 2026 12:15 AM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
@@ -415,7 +425,7 @@
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
                     <div class="target-corner-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3" stroke-linecap="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
                             <circle cx="12" cy="12" r="3.5" stroke="#111111" stroke-width="2.3" fill="none"/>
                         </svg>
