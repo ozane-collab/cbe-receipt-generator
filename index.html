@@ -22,13 +22,13 @@
             max-width: 412px;
             min-height: 100vh;
             background: #ffffff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: relative;
             display: flex;
             flex-direction: column;
+            box-sizing: border-box;
         }
 
-        /* 1. FORM VIEW STYLING */
+        /* 1. INPUT FORM VIEW */
         .form-view {
             padding: 24px;
             box-sizing: border-box;
@@ -78,7 +78,7 @@
             box-shadow: 0 4px 8px rgba(122,27,140,0.3);
         }
 
-        /* 2. RECEIPT VIEW STYLING */
+        /* 2. RECEIPT VIEW */
         .receipt-view {
             display: none; /* Hidden by default */
             width: 100%;
@@ -86,121 +86,180 @@
             flex-direction: column;
             color: white;
             font-size: 14px;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
         .header {
-            padding: 30px 20px 15px;
+            padding: 25px 24px 15px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
         .success-title {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
         .checkmark-circle {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #7A1B8C;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
         }
         .status-text h2 {
             margin: 0;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
         }
         .status-text p {
             margin: 0;
-            font-size: 12px;
-            opacity: 0.8;
+            font-size: 13px;
+            opacity: 0.9;
         }
+        .scan-icon {
+            font-size: 22px;
+            opacity: 0.9;
+        }
+        
+        /* White Box Wrapper */
         .receipt-body {
             background: #F4F4F4;
-            border-top-left-radius: 24px;
-            border-top-right-radius: 24px;
+            border-top-left-radius: 28px;
+            border-top-right-radius: 28px;
             color: #111;
-            padding: 20px;
+            padding: 20px 16px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .msg-title {
-            color: #555;
-            font-size: 13px;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        .summary-box {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            line-height: 1.6;
+            color: #333;
             font-size: 14px;
-            color: #222;
-            text-align: left;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        /* The Big Consolidated Summary Box */
+        .summary-box {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             width: 100%;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .summary-text {
+            line-height: 1.65;
+            font-size: 14.5px;
+            color: #222;
+            text-align: left;
+            width: 100%;
+        }
+        .box-header-title {
+            color: #999; 
+            font-size: 13px; 
+            font-weight: 600; 
+            display: block; 
+            margin-bottom: 12px;
         }
         .bold {
             font-weight: 700;
+            color: #000;
         }
-        .qr-placeholder {
-            margin: 25px 0;
-            width: 130px;
-            height: 130px;
-            background: #fff;
+        
+        /* QR Code Inside Box */
+        .qr-container {
+            margin: 25px 0 20px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            border: 1px solid #ddd;
+            width: 100%;
         }
+        .qr-container img {
+            padding: 4px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        /* CBE Logo Inside Box */
         .cbe-logo-section {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 5px;
+            gap: 12px;
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
             width: 100%;
+            text-align: left;
+        }
+        .cbe-gold-logo {
+            width: 36px;
+            height: 36px;
+            background: #E5C158; /* Fallback Gold Circle */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10px;
+            color: #fff;
+            flex-shrink: 0;
         }
         .cbe-text h4 {
             margin: 0;
-            font-size: 13px;
+            font-size: 13.5px;
             color: #333;
+            font-weight: 600;
         }
         .cbe-text p {
-            margin: 0;
-            font-size: 11px;
+            margin: 2px 0 0;
+            font-size: 11.5px;
             color: #777;
         }
+
+        /* Footer Icons Action Buttons */
         .footer-buttons {
             display: flex;
             justify-content: space-around;
             width: 100%;
-            margin-top: 25px;
-            border-top: 1px solid #ddd;
-            padding-top: 15px;
-            font-size: 12px;
-            color: #333;
-            font-weight: 500;
+            margin-top: auto;
+            padding: 20px 0 10px;
+            font-size: 13px;
+            color: #222;
+            font-weight: 600;
         }
-        .back-btn {
-            background: #E0E0E0;
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        
+        /* Close Button */
+        .close-btn {
+            background: #E2E2E2;
             color: #333;
             width: 100%;
             text-align: center;
-            padding: 12px;
-            border-radius: 20px;
-            margin-top: 20px;
+            padding: 14px;
+            border-radius: 24px;
+            margin-top: 10px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
             cursor: pointer;
             border: none;
+            outline: none;
         }
     </style>
 </head>
@@ -213,27 +272,27 @@
             
             <div class="form-group">
                 <label>Amount (ETB)</label>
-                <input type="number" id="inputAmount" placeholder="e.g. 150.00" step="0.01">
+                <input type="number" id="inputAmount" placeholder="Amount" step="0.01">
             </div>
             
             <div class="form-group">
                 <label>Sender Full Name</label>
-                <input type="text" id="inputSender" placeholder="e.g. Abebe Kebede">
+                <input type="text" id="inputSender" placeholder="Full Name">
             </div>
             
             <div class="form-group">
                 <label>Sender Account (Last 4 Digits)</label>
-                <input type="text" id="inputSenderAcc" placeholder="e.g. 1234">
+                <input type="text" id="inputSenderAcc" placeholder="ETB-">
             </div>
             
             <div class="form-group">
                 <label>Receiver Full Name</label>
-                <input type="text" id="inputReceiver" placeholder="e.g. Chala Alemu">
+                <input type="text" id="inputReceiver" placeholder="Full Name">
             </div>
             
             <div class="form-group">
                 <label>Receiver Account (Last 4 Digits)</label>
-                <input type="text" id="inputReceiverAcc" placeholder="e.g. 5678">
+                <input type="text" id="inputReceiverAcc" placeholder="ETB-">
             </div>
 
             <button class="submit-btn" onclick="generateReceipt()">Generate Receipt</button>
@@ -248,49 +307,52 @@
                         <p>Success</p>
                     </div>
                 </div>
+                <div class="scan-icon">🔲</div>
             </div>
 
             <div class="receipt-body">
                 <div class="msg-title">Transaction Completed Successfully!</div>
                 
                 <div class="summary-box">
-                    <span style="color: #888; font-size: 12px; font-weight: 600; display:block; margin-bottom:8px;">Transaction Summary</span>
-                    ETB <span class="bold" id="recAmount">0.0</span> has been debited from 
-                    <span class="bold" id="recSender">Sender Name</span> 
-                    <span id="recSenderAcc">ETB-0000</span> for 
-                    <span class="bold" id="recReceiver">Receiver Name</span> 
-                    <span id="recReceiverAcc">ETB-0000</span> on 
-                    <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
-                    <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
-                    Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, 
-                    VAT (15%) of ETB<span id="recVat">0.08</span> and Disaster Recovery (5%) of ETB<span id="recDr">0.03</span>.
-                </div>
+                    <div class="summary-text">
+                        <span class="box-header-title">Transaction Summary</span>
+                        ETB <span class="bold" id="recAmount">0.0</span> has been debited from 
+                        <span class="bold" id="recSender">Sender Name</span> 
+                        <span id="recSenderAcc">ETB-0000</span> for 
+                        <span class="bold" id="recReceiver">Receiver Name</span> 
+                        <span id="recReceiverAcc">ETB-0000</span> on 
+                        <span class="bold" id="recDate">Jun 18, 2026 07:46 PM</span> with transaction ID: 
+                        <span class="bold" id="recTxID">FT261699Y8SX</span>. Reason: MB Transfer 
+                        Total Amount Debited: <span id="recTotal">0.00</span> ETB with Service Charge of ETB0.50, 
+                        VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
+                    </div>
 
-                <div class="qr-placeholder">
-                    <img id="qrImage" src="" alt="QR" width="120">
-                </div>
+                    <div class="qr-container">
+                        <img id="qrImage" src="" alt="QR" width="125" height="125">
+                    </div>
 
-                <div class="cbe-logo-section">
-                    <div class="cbe-text">
-                        <h4>Commercial Bank of Ethiopia</h4>
-                        <p>The bank you can always rely on!</p>
+                    <div class="cbe-logo-section">
+                        <div class="cbe-gold-logo">CBE</div>
+                        <div class="cbe-text">
+                            <h4>Commercial Bank of Ethiopia</h4>
+                            <p>The bank you can always rely on!</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="footer-buttons">
-                    <span>📄 Receipt</span>
-                    <span>📷 Screenshot</span>
-                    <span>🔗 Share</span>
+                    <div class="action-item">📋 Receipt</div>
+                    <div class="action-item">📷 Screenshot</div>
+                    <div class="action-item">🔗 Share</div>
                 </div>
                 
-                <button class="back-btn" onclick="goToForm()">Back to Form</button>
+                <button class="close-btn" onclick="goToForm()">Close</button>
             </div>
         </div>
 
     </div>
 
     <script>
-        // Function to create random Transaction ID
         function generateRandomTxID() {
             const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let result = 'FT26';
@@ -300,7 +362,6 @@
             return result;
         }
 
-        // Current Live Date Formatter
         function getFormattedDate() {
             const now = new Date();
             const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -312,14 +373,13 @@
             let minutes = now.getMinutes();
             const ampm = hours >= 12 ? 'PM' : 'AM';
             hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
+            hours = hours ? hours : 12;
             minutes = minutes < 10 ? '0'+minutes : minutes;
             
             return `${month} ${day}, ${year} ${hours}:${minutes} ${ampm}`;
         }
 
         function generateReceipt() {
-            // Read fields
             const amountInput = document.getElementById('inputAmount').value;
             const amount = parseFloat(amountInput) || 0;
             const sender = document.getElementById('inputSender').value || "Unknown Sender";
@@ -327,21 +387,16 @@
             const receiver = document.getElementById('inputReceiver').value || "Unknown Receiver";
             let receiverAcc = document.getElementById('inputReceiverAcc').value || "0000";
 
-            // Format accounts to look like ETB-1234
             if (!senderAcc.startsWith("ETB-")) senderAcc = "ETB-" + senderAcc;
             if (!receiverAcc.startsWith("ETB-")) receiverAcc = "ETB-" + receiverAcc;
 
-            // Calculations
-            const serviceCharge = 0.50;
-            const vat = 0.08;
-            const disasterRecovery = 0.03;
-            const totalDebited = amount + serviceCharge + vat + disasterRecovery;
+            // Strict values as requested
+            const serviceFees = 0.50 + 0.08 + 0.03; 
+            const totalDebited = amount + serviceFees;
 
-            // Generate unique data for receipt
             const txID = generateRandomTxID();
             const liveDate = getFormattedDate();
 
-            // Inject data into fields
             document.getElementById('recAmount').innerText = amount.toFixed(1);
             document.getElementById('recSender').innerText = sender;
             document.getElementById('recSenderAcc').innerText = senderAcc;
@@ -351,16 +406,13 @@
             document.getElementById('recTxID').innerText = txID;
             document.getElementById('recTotal').innerText = totalDebited.toFixed(2);
             
-            // Dynamic QR Code update
-            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=CBE-${txID}`;
+            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=125x125&data=CBE-${txID}`;
 
-            // Switch Screen
             document.getElementById('formView').style.display = 'none';
             document.getElementById('receiptView').style.display = 'flex';
         }
 
         function goToForm() {
-            // Reset to form
             document.getElementById('receiptView').style.display = 'none';
             document.getElementById('formView').style.display = 'block';
         }
