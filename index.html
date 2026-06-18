@@ -99,7 +99,7 @@
         }
 
         .receipt-header {
-            padding: 24px 24px 10px 24px;
+            padding: 24px 16px 8px 16px; /* Reduced side padding to shift content left */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -108,14 +108,13 @@
         .header-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px; /* Tighter gap */
         }
 
-        /* Shield with Checkmark inside wrapper */
+        /* Shield Icon Style */
         .shield-icon-container {
-            position: relative;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -128,92 +127,108 @@
         }
 
         .header-text h2 {
-            font-size: 19px; /* Reduced text size */
+            font-size: 19px;
             font-weight: 600;
             line-height: 1.1;
         }
 
         .header-text p {
-            font-size: 13px;
+            font-size: 12.5px;
             opacity: 0.85;
             margin-top: 1px;
         }
 
-        /* Right Scan Icon Wrapper */
-        .scan-wrapper {
-            background-color: rgba(255, 255, 255, 0.15);
-            width: 42px;
-            height: 42px;
+        /* Custom Right Header Scanner to exactly match 1000027185_2.jpg */
+        .scan-wrapper-custom {
+            background-color: rgba(255, 255, 255, 0.12);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .scan-wrapper i {
-            font-size: 18px;
-            color: white;
+        .custom-target-icon {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            border: 2.5px solid white;
+            border-radius: 6px;
         }
 
-        /* MAIN RECEIPT CONTENT CONTAINER */
+        .custom-target-icon::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* MAIN RECEIPT BODY */
         .receipt-body {
             background-color: white;
             color: #333;
             border-top-left-radius: 35px;
             border-top-right-radius: 35px;
             flex-grow: 1;
-            padding: 0 20px 15px 20px;
+            padding: 0 16px 10px 16px; /* Slightly tighter layout padding */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Big Middle Purple Circle Checkmark Badge */
+        /* Big Middle Purple Circle Badge */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
-            width: 92px;
-            height: 92px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             border: 6px solid white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 44px;
-            margin-top: -46px;
+            font-size: 40px;
+            margin-top: -44px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .success-banner {
-            font-size: 15.5px;
+            font-size: 15px;
             font-weight: 500;
             color: #222222;
-            margin-top: 16px;
-            margin-bottom: 22px;
+            margin-top: 14px;
+            margin-bottom: 18px;
             text-align: center;
             width: 100%;
         }
 
-        /* UNIFIED BACKGROUND CARD */
+        /* SHORTENED HEIGHT FOR TRANSACTION CARD */
         .unified-transaction-card {
             background-color: #f4f4f6;
             border-radius: 20px;
-            padding: 22px;
+            padding: 18px; /* Slightly shorter padding inside card */
             width: 100%;
             display: flex;
             flex-direction: column;
+            max-height: 480px; /* Keeps the entire box shorter and contained */
         }
 
         .card-title {
-            font-size: 15px;
+            font-size: 14px;
             color: #9e9e9e;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .transaction-text-content {
-            font-size: 15px;
-            line-height: 1.6;
+            font-size: 14.5px;
+            line-height: 1.5;
             color: #111111;
             text-align: left;
         }
@@ -222,18 +237,18 @@
             font-weight: 700;
         }
 
-        /* QR Code Inside Card */
+        /* Compact QR Code Frame Inside Card */
         .qr-inside-card {
-            margin-top: 25px;
-            margin-bottom: 25px;
+            margin-top: 15px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: center;
             width: 100%;
         }
 
         .qr-inside-card img {
-            width: 150px;
-            height: 150px;
+            width: 135px; /* Shorter image height */
+            height: 135px;
             object-fit: contain;
         }
 
@@ -243,27 +258,27 @@
             align-items: center;
             gap: 12px;
             width: 100%;
-            border-top: 1px solid #e0e0e0;
-            padding-top: 15px;
+            border-top: 1px solid #e2e2e6;
+            padding-top: 12px;
         }
 
         .cbe-text h4 {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
             color: #333333;
         }
 
         .cbe-text p {
-            font-size: 12px;
+            font-size: 11.5px;
             color: #666666;
         }
 
-        /* BOTTOM SYSTEM BUTTON BAR */
+        /* BOTTOM NAV ACTIONS BAR */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 14px 10px;
+            padding: 12px 10px;
             border-top: 1px solid #eeeeee;
             width: 100%;
         }
@@ -280,17 +295,17 @@
             cursor: pointer;
         }
 
-        /* Custom compound wrapper icon to match screenshot specifications */
-        .screenshot-icon-wrapper {
+        /* Exact layout duplication matching 1000027200_2.jpg Spec */
+        .screenshot-icon-custom {
             position: relative;
             display: inline-block;
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 14px;
             border: 2px solid #111111;
             border-radius: 4px;
         }
         
-        .screenshot-icon-wrapper::after {
+        .screenshot-icon-custom::after {
             content: '';
             position: absolute;
             width: 4px;
@@ -304,7 +319,7 @@
 
         .close-container {
             background-color: #ffffff;
-            padding: 0 20px 20px 20px;
+            padding: 0 20px 16px 20px;
             width: 100%;
         }
 
@@ -340,8 +355,8 @@
             </div>
 
             <div class="input-group">
-                <label>Sender Account</label>
-                <input type="text" id="inputSenderAcc" placeholder="ETB-" required>
+                <label>Sender Account (Last 4 Digits)</label>
+                <input type="text" id="inputSenderAcc" placeholder="ETB-XXXX" required>
             </div>
 
             <div class="input-group">
@@ -350,8 +365,8 @@
             </div>
 
             <div class="input-group">
-                <label>Receiver Account</label>
-                <input type="text" id="inputReceiverAcc" placeholder="ETB-" required>
+                <label>Receiver Account (Last 4 Digits)</label>
+                <input type="text" id="inputReceiverAcc" placeholder="ETB-XXXX" required>
             </div>
 
             <button type="button" class="btn-generate" onclick="generateReceiptData()">Generate Receipt</button>
@@ -362,7 +377,6 @@
         <div id="receiptPage" class="receipt-page">
             <div class="receipt-header">
                 <div class="header-left">
-                    <!-- Clean SVG Shield with a precise Checkmark cut inside -->
                     <div class="shield-icon-container">
                         <svg viewBox="0 0 24 24">
                             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
@@ -373,8 +387,8 @@
                         <p>Success</p>
                     </div>
                 </div>
-                <div class="scan-wrapper">
-                    <i class="fa-solid fa-qrcode"></i>
+                <div class="scan-wrapper-custom">
+                    <div class="custom-target-icon"></div>
                 </div>
             </div>
 
@@ -386,7 +400,7 @@
 
                 <div class="success-banner">Transaction Completed Successfully!</div>
                 
-                <!-- Unified Card Area -->
+                <!-- Shortened Card Layout Area -->
                 <div class="unified-transaction-card">
                     <div class="card-title">Transaction Summary</div>
                     
@@ -394,7 +408,7 @@
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
-                        <span class="bold-text" id="displayDate">Jun 18, 2026 10:14 PM</span> with transaction ID: 
+                        <span class="bold-text" id="displayDate">Jun 18, 2026 11:00 PM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
@@ -407,7 +421,7 @@
 
                     <!-- Commercial Bank Logo Footer with official gold coin rendering -->
                     <div class="cbe-logo-footer">
-                        <svg width="40" height="40" viewBox="0 0 100 100">
+                        <svg width="36" height="36" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="46" fill="none" stroke="#b38f2b" stroke-width="1.5" stroke-dasharray="3 2"/>
                             <circle cx="50" cy="50" r="42" fill="none" stroke="#b38f2b" stroke-width="1"/>
                             <circle cx="50" cy="50" r="36" fill="#d4af37" stroke="#b38f2b" stroke-width="2"/>
@@ -431,7 +445,7 @@
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
-                    <span class="screenshot-icon-wrapper"></span> Screenshot
+                    <span class="screenshot-icon-custom"></span> Screenshot
                 </button>
                 <button class="action-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
             </div>
@@ -455,7 +469,7 @@
                 return;
             }
 
-            // Clean dynamic prefix addition
+            // Normalizing the field layouts
             if(!senderAcc.toUpperCase().startsWith("ETB-")) { senderAcc = "ETB-" + senderAcc; }
             if(!receiverAcc.toUpperCase().startsWith("ETB-")) { receiverAcc = "ETB-" + receiverAcc; }
 
