@@ -224,12 +224,12 @@
             width: 100%;
         }
 
-        /* ማስተካከያ፦ ቦክሱ ወደ ጎን እንዲያጥር width: calc(100% - 32px) ተደርጓል፣ ቁመቱና ቦታውም ተስተካክሏል */
+        /* ማስተካከያ፦ ቦክሱ ልክ እንደ እውነተኛው ፎቶ ቆንጆና ትክክለኛ ስፋት (width: 92%) እንዲኖረው ተደርጓል */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
             padding: 18px;
-            width: calc(100% - 32px); 
+            width: 92%; 
             display: flex;
             flex-direction: column;
             margin-bottom: 20px; 
@@ -270,7 +270,7 @@
             object-fit: contain;
         }
 
-        /* CBE Footer Inside Card */
+        /* CBE Footer Inside Card - እውነተኛውን ሎጎ ለመቀበል የተስተካከለ */
         .cbe-logo-footer {
             display: flex;
             align-items: center;
@@ -278,6 +278,13 @@
             width: 100%;
             border-top: 1px solid #d4d6da;
             padding-top: 12px;
+        }
+
+        /* ማስተካከያ፦ እውነተኛውን ወርቃማ የንግድ ባንክ ሎጎ መጠን መቆጣጠሪያ */
+        .cbe-actual-logo {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
         }
 
         .cbe-text h4 {
@@ -291,7 +298,6 @@
             color: #666666;
         }
 
-        /* ማስተካከያ፦ የነበረው ከላይ ያለው የነጭ መስመር/ከለር ሙሉ በሙሉ ጠፍቷል (border-top: none) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
@@ -439,18 +445,8 @@
                     </div>
 
                     <div class="cbe-logo-footer">
-                        <svg width="36" height="36" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="46" fill="none" stroke="#b38f2b" stroke-width="1.5" stroke-dasharray="3 2"/>
-                            <circle cx="50" cy="50" r="42" fill="none" stroke="#b38f2b" stroke-width="1"/>
-                            <circle cx="50" cy="50" r="36" fill="#d4af37" stroke="#b38f2b" stroke-width="2"/>
-                            <circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="2 1"/>
-                            <circle cx="50" cy="50" r="26" fill="none" stroke="#947419" stroke-width="1.5"/>
-                            <text x="50" y="57" font-size="22" font-weight="900" fill="#fff" text-anchor="middle" font-family="'Times New Roman', serif" letter-spacing="1">BE</text>
-                            <circle cx="50" cy="20" r="2" fill="#fff"/>
-                            <circle cx="32" cy="26" r="1.5" fill="#fff"/>
-                            <circle cx="68" cy="26" r="1.5" fill="#fff"/>
-                            <circle cx="50" cy="80" r="2" fill="#fff"/>
-                        </svg>
+                        <!-- ማስተካከያ፦ የድሮው ክበብ ጠፍቶ እውነተኛው የ CBE ወርቃማ ሎጎ ምስል ገብቷል -->
+                        <img class="cbe-actual-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Commercial_Bank_of_Ethiopia_logo.png" alt="CBE Logo">
                         <div class="cbe-text">
                             <h4>Commercial Bank of Ethiopia</h4>
                             <p>The bank you can always rely on!</p>
@@ -459,7 +455,7 @@
                 </div>
             </div>
 
-            <!-- Action buttons without the top line border -->
+            <!-- Action buttons -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
