@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CBE Receipt Generator</title>
+    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -126,9 +127,9 @@
             display: none; 
         }
 
-        /* 1. የላይኛው ሐምራዊ ከለር ቁመት ጨምሯል (የበለጠ ወረድ እንዲል) */
+        /* INCREASING HEADER HEIGHT (KUMETU KELAY) */
         .receipt-header {
-            padding: 70px 16px 22px 16px; 
+            padding: 65px 16px 20px 16px; 
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -204,9 +205,10 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
+        /* FIXED CHECKMARK: Left line is shorter (ater ybeleh) */
         .big-check-badge svg {
             width: 62px; 
-            height: 72px;
+            height: 62px;
             fill: none;
             stroke: white;
             stroke-width: 4.5; 
@@ -224,7 +226,7 @@
             width: 100%;
         }
 
-        /* SOLID GRAY BOX WITH NO SHADOW */
+        /* UNIFIED TRANSPARENT BOX WITH NO SHADOW */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
@@ -232,7 +234,7 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            margin-bottom: -50px; 
+            margin-bottom: 0px; 
             box-shadow: none; 
         }
 
@@ -290,15 +292,15 @@
             color: #666666;
         }
 
-        /* 2. ክፍተቱ ሙሉ በሙሉ የጠፋበት የነ SHARE በተኖች ሳጥን */
+        /* EXTRA TIGHT ACTION BAR & CLOSE BUTTON (KFTET ATFAW) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 2px 10px 2px 10px; /* ክፍተቱ እጅግ በጣም እንዲጠብ ተደርጓል */
+            padding: 10px 10px 5px 10px; /* Reduced bottom padding to squeeze tightly */
             border-top: 1px solid #eeeeee;
             width: 100%;
-            margin-top: 0px; 
+            margin-top: 0px; /* Completely removed spacing */
         }
 
         .action-btn {
@@ -325,10 +327,9 @@
             height: 26px; 
         }
 
-        /* 3. ክፍተቱ የጠፋበት የ CLOSE በተን ሳጥን */
         .close-container {
             background-color: #ffffff;
-            padding: 2px 20px 5px 20px; /* ወደ ላይ ሙሉ በሙሉ ተጣብቋል */
+            padding: 5px 20px 10px 20px; /* Brought up as close as possible */
             width: 100%;
         }
 
@@ -349,6 +350,7 @@
 
     <div class="phone-container">
         
+        <!-- PAGE 1: INPUT FORM VIEW -->
         <div id="formPage" class="form-page">
             <h1 class="form-title">Receipt Generator</h1>
             
@@ -363,6 +365,7 @@
             </div>
 
             <div class="input-group">
+                <!-- Label changed to ETB- only -->
                 <label>Sender Account (ETB-)</label>
                 <div class="account-input-wrapper">
                     <span class="account-prefix">ETB-</span>
@@ -376,6 +379,7 @@
             </div>
 
             <div class="input-group">
+                <!-- Label changed to ETB- only -->
                 <label>Receiver Account (ETB-)</label>
                 <div class="account-input-wrapper">
                     <span class="account-prefix">ETB-</span>
@@ -387,6 +391,7 @@
         </div>
 
 
+        <!-- PAGE 2: LIVE CBE RECEIPT VIEW -->
         <div id="receiptPage" class="receipt-page">
             <div class="receipt-header">
                 <div class="header-left">
@@ -411,9 +416,10 @@
             </div>
 
             <div class="receipt-body">
+                <!-- Adjusted path: left tick stroke is made shorter (M5 12.5 L9.5 17) -->
                 <div class="big-check-badge">
                     <svg viewBox="0 0 24 24">
-                        <path d="M7.5 12.5 L10.5 15.5 L19.5 7" />
+                        <path d="M5.5 12.5 L9.5 17 L21 6.5" />
                     </svg>
                 </div>
 
@@ -457,6 +463,7 @@
                 </div>
             </div>
 
+            <!-- Tightly bound actions and close triggers -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
