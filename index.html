@@ -224,15 +224,15 @@
             width: 100%;
         }
 
-        /* ማስተካከያ፦ ቦክሱ ልክ እንደ እውነተኛው ፎቶ ቆንጆና ትክክለኛ ስፋት (width: 92%) እንዲኖረው ተደርጓል */
+        /* ማስተካከያ፦ ቦክሱ ወደ ጎን እና ወደ ታች ልክ እንደ ፎቶው ቆንጆ ሆኖ ሰፋ እንዲል ተደርጓል */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
-            padding: 18px;
-            width: 92%; 
+            padding: 20px 18px;
+            width: 94%; 
             display: flex;
             flex-direction: column;
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             box-shadow: none; 
         }
 
@@ -270,21 +270,23 @@
             object-fit: contain;
         }
 
-        /* CBE Footer Inside Card - እውነተኛውን ሎጎ ለመቀበል የተስተካከለ */
+        /* CBE Footer Inside Card */
         .cbe-logo-footer {
             display: flex;
             align-items: center;
             gap: 12px;
             width: 100%;
             border-top: 1px solid #d4d6da;
-            padding-top: 12px;
+            padding-top: 14px;
         }
 
-        /* ማስተካከያ፦ እውነተኛውን ወርቃማ የንግድ ባንክ ሎጎ መጠን መቆጣጠሪያ */
-        .cbe-actual-logo {
-            width: 38px;
-            height: 38px;
-            object-fit: contain;
+        /* ማስተካከያ፦ ምስል እንዳይጠፋ ሙሉ በሙሉ በኮድ (SVG) የተሰራው አዲሱ ሎጎ መቆጣጠሪያ */
+        .cbe-vector-logo {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .cbe-text h4 {
@@ -298,10 +300,12 @@
             color: #666666;
         }
 
+        /* ማስተካከያ፦ በተኖቹ በመካከላቸው ያለው ክፍተት ጠቦ እንዲቀራረቡ (justify-content: center እና gap) ተደርጓል */
         .action-bar {
             background-color: #ffffff;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 32px; 
             padding: 10px 10px 15px 10px; 
             border-top: none; 
             width: 100%;
@@ -434,7 +438,7 @@
                         ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
-                        <span class="bold-text" id="displayDate">Jun 19, 2026 01:02 AM</span> with transaction ID: 
+                        <span class="bold-text" id="displayDate">Jun 19, 2026 10:43 AM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
                         Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
                         VAT (15%) of ETB0.08 and Disaster Recovery (5%) of ETB0.03.
@@ -445,8 +449,18 @@
                     </div>
 
                     <div class="cbe-logo-footer">
-                        <!-- ማስተካከያ፦ የድሮው ክበብ ጠፍቶ እውነተኛው የ CBE ወርቃማ ሎጎ ምስል ገብቷል -->
-                        <img class="cbe-actual-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Commercial_Bank_of_Ethiopia_logo.png" alt="CBE Logo">
+                        <!-- ማስተካከያ፦ በምንም ብሮውዘር ላይ እንዳይጠፋ ሙሉ በሙሉ በ SVG ኮድ የተሰራው ወርቃማው የንግድ ባንክ ሎጎ -->
+                        <div class="cbe-vector-logo">
+                            <svg viewBox="0 0 100 100" width="100%" height="100%">
+                                <circle cx="50" cy="50" r="46" fill="#cca625" stroke="#9e7e13" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="38" fill="#a88414" stroke="#ffffff" stroke-width="1.5"/>
+                                <path d="M35 32 C 45 22, 55 22, 65 32 C 58 42, 42 42, 35 32 Z" fill="#ffffff"/>
+                                <path d="M35 68 C 45 78, 55 78, 65 68 C 58 58, 42 58, 35 68 Z" fill="#ffffff"/>
+                                <path d="M22 50 C 22 40, 32 35, 42 45 C 32 52, 32 58, 42 65 C 32 72, 22 62, 22 50 Z" fill="#ffffff"/>
+                                <path d="M78 50 C 78 40, 68 35, 58 45 C 68 52, 68 58, 58 65 C 68 72, 78 62, 78 50 Z" fill="#ffffff"/>
+                                <circle cx="50" cy="50" r="10" fill="#cca625"/>
+                            </svg>
+                        </div>
                         <div class="cbe-text">
                             <h4>Commercial Bank of Ethiopia</h4>
                             <p>The bank you can always rely on!</p>
@@ -455,7 +469,7 @@
                 </div>
             </div>
 
-            <!-- Action buttons -->
+            <!-- Action buttons - Spaced closer together -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
