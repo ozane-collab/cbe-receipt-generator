@@ -224,7 +224,6 @@
             width: 100%;
         }
 
-        /* ማስተካከያ፦ ቦክሱ ልክ እንደ ፎቶው 1000027256.jpg ወደ ታች ወርዶና ወደ ጎን ሰፍቶ እንዲቀመጥ ተደርጓል */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
@@ -278,7 +277,6 @@
             padding-top: 14px;
         }
 
-        /* ማስተካከያ፦ የራስህን ፎቶ ስታስገባ ልክ መጠን የሚቆጣጠር */
         .cbe-actual-logo {
             width: 38px;
             height: 38px;
@@ -296,12 +294,12 @@
             color: #666666;
         }
 
-        /* ማስተካከያ፦ በተኖቹ ይበልጥ እንዲቀራረቡ (gap: 12px) እና ክፍተቱ እንዲያጥር ተደርጓል */
+        /* ማስተካከያ፦ በተኖቹ በመካከላቸው ያለው ክፍተት ትንሽ ሰፋ ተደርጎ (gap: 35px) ልክ እንደ ፎቶው እንዲቀመጥ ተደርጓል */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: center;
-            gap: 12px; 
+            gap: 35px; 
             padding: 5px 10px 15px 10px; 
             width: 100%;
         }
@@ -311,7 +309,7 @@
             border: none;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             font-size: 14px;
             font-weight: 400; 
             color: #111111;
@@ -443,7 +441,7 @@
                     </div>
 
                     <div class="cbe-logo-footer">
-                        <!-- ማስተካከያ፦ እዚህ ቦታ ላይ 'cbe_logo.png' የሚለውን አጥፍተህ የራስህን ፎቶ ስም ማስገባት ትችላለህ -->
+                        <!-- ያንተን ፎቶ ስም 'cbe_logo.png' ብለህ ስለቀየርክ አሁን በቀጥታ ያነበዋል -->
                         <img class="cbe-actual-logo" src="cbe_logo.png" alt="CBE Logo">
                         <div class="cbe-text">
                             <h4>Commercial Bank of Ethiopia</h4>
@@ -453,7 +451,7 @@
                 </div>
             </div>
 
-            <!-- Tighter and closer action alignment -->
+            <!-- Balanced and proportional action bar alignment -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
@@ -490,14 +488,9 @@
             const senderAcc = "ETB-" + senderRaw;
             const receiverAcc = "ETB-" + receiverRaw;
 
-            // ማስተካከያ፦ ቫት እና ዲዛስተር ሪከቨሪ በገባው ብር መጠን ተሰልቶ በራስ-ሰር ይቀየራል
             const serviceCharge = 0.50;
-            const vat = (amountInput * 0.00015).toFixed(2); // ባስገባኸው መጠን ልክ እንዲሰላ ካስፈለገ
+            const vat = (amountInput * 0.00015).toFixed(2); 
             const disasterRecovery = (amountInput * 0.00005).toFixed(2);
-            
-            // የባንኩን መደበኛ 0.08 እና 0.03 ማስቀጠል ከፈለግክ ከታች ያሉትን ሁለት መስመሮች መጠቀም ትችላለህ፦
-            // const vat = 0.08;
-            // const disasterRecovery = 0.03;
 
             const totalDebited = (amountInput + serviceCharge + parseFloat(vat) + parseFloat(disasterRecovery)).toFixed(2);
 
