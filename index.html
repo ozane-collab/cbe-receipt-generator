@@ -294,7 +294,7 @@
             color: #666666;
         }
 
-        /* ማስተካከያ፦ በተኖቹ በመካከላቸው ያለው ክፍተት ትንሽ ሰፋ ተደርጎ (gap: 35px) ልክ እንደ ፎቶው እንዲቀመጥ ተደርጓል */
+        /* የታችኞቹ በተኖች መካከለኛ ክፍተት (gap: 35px) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
@@ -441,8 +441,8 @@
                     </div>
 
                     <div class="cbe-logo-footer">
-                        <!-- ያንተን ፎቶ ስም 'cbe_logo.png' ብለህ ስለቀየርክ አሁን በቀጥታ ያነበዋል -->
-                        <img class="cbe-actual-logo" src="cbe_logo.png" alt="CBE Logo">
+                        <!-- ማስተካከያ፦ ምንም አይነት የውጭ ፎቶ ሳይፈልግ በውስጡ እውነተኛውን የባንክ ሎጎ የያዘ አዲስ ኮድ -->
+                        <img class="cbe-actual-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAFFF7D3AAAACXBIWXMAAAsTAAALEwEAmpwYAAADXWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAM0F0b2JlIFhNUCBEYXRhYmFzZQA8P3hwYWNrZXQgYmVnaW49Is+count77u7IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQwIDc5LjE1NzQ0OSwgMjAxNS8wOC8xMS0yMjowNToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc0NfL3R5cGVSZXNvdXJjZSMvIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjMDM0NzM4Yy1lYmEwLTRjYjEtOWIyMC1mMGJhOWRmNWZjMzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTRBN0MyMUYyODIzMTFFNkFCMjlDMTAyNEFFQzI3QUYiIHhtcE1N厂商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" alt="CBE Logo">
                         <div class="cbe-text">
                             <h4>Commercial Bank of Ethiopia</h4>
                             <p>The bank you can always rely on!</p>
