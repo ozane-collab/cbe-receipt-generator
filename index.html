@@ -127,7 +127,6 @@
             display: none; 
         }
 
-        /* INCREASING HEADER HEIGHT (KUMETU KELAY) */
         .receipt-header {
             padding: 65px 16px 20px 16px; 
             display: flex;
@@ -205,13 +204,13 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* FIXED CHECKMARK: Left line is shorter (ater ybeleh) */
+        /* ማስተካከያ 1፡ የራይት ምልክቱ ነጩ መስመር ይበልጥ ቀጭን (stroke-width: 3.2) እንዲሆን ተደርጓል */
         .big-check-badge svg {
             width: 62px; 
             height: 62px;
             fill: none;
             stroke: white;
-            stroke-width: 4.5; 
+            stroke-width: 3.2; 
             stroke-linecap: square;
             stroke-linejoin: miter;
         }
@@ -226,7 +225,6 @@
             width: 100%;
         }
 
-        /* UNIFIED TRANSPARENT BOX WITH NO SHADOW */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
@@ -292,15 +290,15 @@
             color: #666666;
         }
 
-        /* EXTRA TIGHT ACTION BAR & CLOSE BUTTON (KFTET ATFAW) */
+        /* ማስተካከያ 2፦ ከ Share በተኖች በላይ ያለው ክፍተት ከዋናው ቦክስ ጋር ሙሉ በሙሉ እንዲጣበቅ padding እና margin ተስተካክሏል */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 10px 10px 5px 10px; /* Reduced bottom padding to squeeze tightly */
+            padding: 4px 10px 2px 10px; 
             border-top: 1px solid #eeeeee;
             width: 100%;
-            margin-top: 0px; /* Completely removed spacing */
+            margin-top: 0px; 
         }
 
         .action-btn {
@@ -327,9 +325,10 @@
             height: 26px; 
         }
 
+        /* ማስተካከያ 3፦ ከ Close በተን በታች ተጨማሪ ነጭ ክፍተት እንዲኖር የታችኛው padding ወደ 30px አድጓል */
         .close-container {
             background-color: #ffffff;
-            padding: 5px 20px 10px 20px; /* Brought up as close as possible */
+            padding: 2px 20px 30px 20px; 
             width: 100%;
         }
 
@@ -365,7 +364,6 @@
             </div>
 
             <div class="input-group">
-                <!-- Label changed to ETB- only -->
                 <label>Sender Account (ETB-)</label>
                 <div class="account-input-wrapper">
                     <span class="account-prefix">ETB-</span>
@@ -379,7 +377,6 @@
             </div>
 
             <div class="input-group">
-                <!-- Label changed to ETB- only -->
                 <label>Receiver Account (ETB-)</label>
                 <div class="account-input-wrapper">
                     <span class="account-prefix">ETB-</span>
@@ -416,7 +413,7 @@
             </div>
 
             <div class="receipt-body">
-                <!-- Adjusted path: left tick stroke is made shorter (M5 12.5 L9.5 17) -->
+                <!-- የራይቱ መስመር ይበልጥ እንዲቀጥን በ CSS stroke-width ተስተካክሏል -->
                 <div class="big-check-badge">
                     <svg viewBox="0 0 24 24">
                         <path d="M5.5 12.5 L9.5 17 L21 6.5" />
