@@ -189,7 +189,7 @@
             align-items: center;
         }
 
-        /* Big Middle Purple Circle Badge - ራይቱ ገዘፍ እንዲል መጠኑ ወደ 92px ጨምሯል */
+        /* Big Middle Purple Circle Badge */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
@@ -204,7 +204,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* የራይቱ SVG ቁመትና ስፋት በትንሹ እንዲገዝፍ ተደርጓል (66px) */
         .big-check-badge svg {
             width: 66px; 
             height: 66px;
@@ -215,7 +214,6 @@
             stroke-linejoin: miter;
         }
 
-        /* ማስተካከያ 1፦ "Transaction Completed..." ጽሑፍ ኖርማል ቀጭን (font-weight: 400) ተደርጓል */
         .success-banner {
             font-size: 15px;
             font-weight: 400;
@@ -226,16 +224,15 @@
             width: 100%;
         }
 
-        /* ማስተካከያ 3፦ የመሃሉ ቦክስ ወደ ታች እንዲለጠጥ flex-grow እና margin-bottom ተጨምሮበታል */
+        /* ማስተካከያ፦ ቦክሱ ወደ ጎን እንዲያጥር width: calc(100% - 32px) ተደርጓል፣ ቁመቱና ቦታውም ተስተካክሏል */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
             padding: 18px;
-            width: 100%;
+            width: calc(100% - 32px); 
             display: flex;
             flex-direction: column;
-            flex-grow: 1; 
-            margin-bottom: 12px; 
+            margin-bottom: 20px; 
             box-shadow: none; 
         }
 
@@ -257,14 +254,14 @@
             font-weight: 700;
         }
 
-        /* QR Code Frame - በቦክሱ መሃል ላይ በደንብ እንዲቀመጥ ተደርጓል */
+        /* QR Code Frame */
         .qr-inside-card {
-            margin-top: auto;
-            margin-bottom: auto;
+            margin-top: 15px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: center;
             width: 100%;
-            padding: 10px 0;
+            padding: 5px 0;
         }
 
         .qr-inside-card img {
@@ -281,7 +278,6 @@
             width: 100%;
             border-top: 1px solid #d4d6da;
             padding-top: 12px;
-            margin-top: auto; 
         }
 
         .cbe-text h4 {
@@ -295,15 +291,15 @@
             color: #666666;
         }
 
-        /* ማስተካከያ 4፦ ከ Share በተኖች በላይ ያለው ክፍተት በትንሹ እንዲራራቅ margin-top: 4px ሆኗል */
+        /* ማስተካከያ፦ የነበረው ከላይ ያለው የነጭ መስመር/ከለር ሙሉ በሙሉ ጠፍቷል (border-top: none) */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 6px 10px 4px 10px; 
-            border-top: 1px solid #eeeeee;
+            padding: 10px 10px 15px 10px; 
+            border-top: none; 
             width: 100%;
-            margin-top: 4px; 
+            margin-top: 0px; 
         }
 
         .action-btn {
@@ -330,7 +326,6 @@
             height: 26px; 
         }
 
-        /* ከ Close በተን በታች ያለው ውብ ነጭ ክፍተት እንዳለ ተጠብቋል */
         .close-container {
             background-color: #ffffff;
             padding: 2px 20px 30px 20px; 
@@ -418,7 +413,6 @@
             </div>
 
             <div class="receipt-body">
-                <!-- ማስተካከያ 2፦ የራይቱ መስመር ወደ ቀኝና ግራ በትንሹ እንዲረዝም SVG Path ተስተካክሏል (M4.5 L9.5 L21.5) -->
                 <div class="big-check-badge">
                     <svg viewBox="0 0 24 24">
                         <path d="M4.5 12.5 L9.5 17.5 L21.5 6.5" />
@@ -465,7 +459,7 @@
                 </div>
             </div>
 
-            <!-- Tightly bound actions and close triggers -->
+            <!-- Action buttons without the top line border -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
