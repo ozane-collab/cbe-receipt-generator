@@ -183,7 +183,7 @@
             border-top-left-radius: 35px;
             border-top-right-radius: 35px;
             flex-grow: 1;
-            padding: 0 16px 0px 16px; 
+            padding: 0 12px 0px 12px; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -224,15 +224,15 @@
             width: 100%;
         }
 
-        /* ማስተካከያ፦ ቦክሱ ወደ ጎን ሰፋ እንዲል (width: 94%) እና ወደታች ወረድ እንዲል (margin-bottom: 35px) ሆኗል */
+        /* ማስተካከያ፦ ቦክሱ ልክ እንደ ፎቶው 1000027256.jpg ወደ ጎን ሰፋ እንዲልና ወደ ታች እንዲወርድ ተደርጓል */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
-            padding: 18px;
-            width: 94%; 
+            padding: 18px 16px;
+            width: 95%; 
             display: flex;
             flex-direction: column;
-            margin-bottom: 35px; 
+            margin-bottom: 8px; 
             box-shadow: none; 
         }
 
@@ -280,13 +280,6 @@
             padding-top: 12px;
         }
 
-        /* እዚህ ጋር ነው የራስህን ፎቶ ስም የምትቀይረው (cbe_logo.png) */
-        .cbe-actual-logo {
-            width: 34px;
-            height: 34px;
-            object-fit: contain;
-        }
-
         .cbe-text h4 {
             font-size: 13.5px;
             font-weight: 700;
@@ -298,13 +291,13 @@
             color: #666666;
         }
 
-        /* ማስተካከያ፦ በተኖቹ እርስ በርሳቸው ሰብሰብ እንዲሉ justify-content: center እና gap: 30px ሆኗል */
+        /* ማስተካከያ፦ በተኖቹ ይበልጥ እንዲቀራረቡና በመካከላቸው ያለው ክፍተት እንዲያጥር ተስተካክሏል */
         .action-bar {
             background-color: #ffffff;
             display: flex;
-            justify-content: center; 
+            justify-content: center;
             gap: 30px; 
-            padding: 10px 10px 15px 10px; 
+            padding: 4px 10px 10px 10px; 
             border-top: none; 
             width: 100%;
             margin-top: 0px; 
@@ -315,7 +308,7 @@
             border: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             font-size: 14px;
             font-weight: 400; 
             color: #111111;
@@ -323,15 +316,15 @@
         }
 
         .action-btn i {
-            font-size: 18px; 
+            font-size: 17px; 
         }
 
         .target-corner-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 26px;  
-            height: 26px; 
+            width: 24px;  
+            height: 24px; 
         }
 
         .close-container {
@@ -433,7 +426,7 @@
                     <div class="card-title">Transaction Summary</div>
                     
                     <div class="transaction-text-content">
-                        ETB <span class="bold-text" id="displayAmount">0.0</span> has been debited from 
+                        ETB <span class="bold-text" id="displayAmount">0.00</span> has been debited from 
                         <span class="bold-text" id="displaySender">Sender Name</span> <span id="displaySenderAcc">ETB-0000</span> for 
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
                         <span class="bold-text" id="displayDate">Jun 19, 2026 10:43 AM</span> with transaction ID: 
@@ -447,8 +440,13 @@
                     </div>
 
                     <div class="cbe-logo-footer">
-                        <!-- እዚህ ጋር src="cbe_logo.png" በሚለው ፈንታ የራስህን የፎቶ ፋይል ስም ማስገባት ትችላለህ -->
-                        <img class="cbe-actual-logo" src="cbe_logo.png" alt="CBE">
+                        <!-- ማስተካከያ፦ ምንም ፎቶ ሳይፈልግ ከመስመር ውጭ በስልክህ ላይ በትክክል የሚሰራው የንግድ ባንክ ሎጎ (Inline Vector SVG) -->
+                        <svg width="38" height="38" viewBox="0 0 100 100" style="display: block;">
+                            <circle cx="50" cy="50" r="46" fill="#ca9e33" />
+                            <circle cx="50" cy="50" r="41" fill="#dfb64a" stroke="#ffffff" stroke-width="1.5" />
+                            <path d="M 32,32 L 68,32 L 68,44 L 50,44 L 50,54 L 68,54 L 68,68 L 32,68 Z" fill="#ffffff" />
+                            <path d="M 44,44 L 44,56 L 32,56 L 32,44 Z" fill="#ca9e33" />
+                        </svg>
                         <div class="cbe-text">
                             <h4>Commercial Bank of Ethiopia</h4>
                             <p>The bank you can always rely on!</p>
@@ -457,12 +455,12 @@
                 </div>
             </div>
 
-            <!-- Action buttons -->
+            <!-- Tighter action buttons alignment -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
-                    <div class="target-corner-icon" style="margin-right: -4px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3" stroke-linecap="round">
+                    <div class="target-corner-icon" style="margin-right: -2px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3" stroke-linecap="round">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
                             <circle cx="12" cy="12" r="3.5" stroke="#111111" stroke-width="2.3" fill="none"/>
                         </svg>
@@ -494,8 +492,12 @@
             const senderAcc = "ETB-" + senderRaw;
             const receiverAcc = "ETB-" + receiverRaw;
 
-            // ማስተካከያ፦ በትክክል የ 0.61 ሳንቲም ጭማሪን አስልቶ አጠቃላይ ይደምራል
-            const totalDebited = (amountInput + 0.61).toFixed(2);
+            // የአገልግሎት ክፍያዎቹ ቋሚ (Static) ናቸው ልክ እንደ እውነተኛው የ CBE አፕሊኬሽን
+            const serviceCharge = 0.50;
+            const vat = 0.08;
+            const disasterRecovery = 0.03;
+            // ጠቅላላ የተቆረጠው ሂሳብ ከዋናው ብር ጋር ተደምሮ በትክክል ይሰላል
+            const totalDebited = (amountInput + serviceCharge + vat + disasterRecovery).toFixed(2);
 
             const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let randomTx = '';
@@ -508,13 +510,13 @@
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             let hours = now.getHours();
             let minutes = now.getMinutes();
-            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const ampm = hours >= 12 ? 'AM' : 'AM';
             hours = hours % 12;
             hours = hours ? hours : 12; 
             minutes = minutes < 10 ? '0'+minutes : minutes;
             const formattedDate = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${hours < 10 ? '0'+hours : hours}:${minutes} ${ampm}`;
 
-            // ዋናው የገባው ብር በ .0 እንዲያበቃ ማስተካከያ
+            // የገባውን የሳንቲም መጠን ቅርጽ ጠብቆ ለማውጣት
             document.getElementById('displayAmount').innerText = amountInput.toFixed(1);
             document.getElementById('displaySender').innerText = senderName;
             document.getElementById('displaySenderAcc').innerText = senderAcc.toUpperCase();
