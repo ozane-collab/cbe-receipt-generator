@@ -189,6 +189,7 @@
             align-items: center;
         }
 
+        /* Big Middle Circle Check */
         .big-check-badge {
             background-color: #7b1fa2;
             color: white;
@@ -223,16 +224,15 @@
             width: 100%;
         }
 
-        /* የመሃል ቦክስ ስፋት ማስተካከያ */
+        /* ማስተካከያ፦ ቦክሱ ልክ እንደ ፎቶው 1000027256.jpg ወደ ታች ወርዶና ወደ ጎን ሰፍቶ እንዲቀመጥ ተደርጓል */
         .unified-transaction-card {
             background-color: #f2f2f2; 
             border-radius: 20px;
-            padding: 18px 16px;
-            width: 95%; 
+            padding: 22px 18px;
+            width: 96%; 
             display: flex;
             flex-direction: column;
-            margin-bottom: 8px; 
-            box-shadow: none; 
+            margin-bottom: 25px; 
         }
 
         .card-title {
@@ -253,19 +253,18 @@
             font-weight: 700;
         }
 
-        /* QR Code */
+        /* QR Code Frame */
         .qr-inside-card {
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: center;
             width: 100%;
-            padding: 5px 0;
         }
 
         .qr-inside-card img {
-            width: 135px;
-            height: 135px;
+            width: 140px;
+            height: 140px;
             object-fit: contain;
         }
 
@@ -276,13 +275,13 @@
             gap: 12px;
             width: 100%;
             border-top: 1px solid #d4d6da;
-            padding-top: 12px;
+            padding-top: 14px;
         }
 
-        /* የራስህን ትክክለኛ የሎጎ ምስል መጠን መቆጣጠሪያ */
-        .cbe-custom-user-logo {
-            width: 36px;
-            height: 36px;
+        /* ማስተካከያ፦ የራስህን ፎቶ ስታስገባ ልክ መጠን የሚቆጣጠር */
+        .cbe-actual-logo {
+            width: 38px;
+            height: 38px;
             object-fit: contain;
         }
 
@@ -297,16 +296,14 @@
             color: #666666;
         }
 
-        /* የበተኖች መቀራረቢያ ማስተካከያ */
+        /* ማስተካከያ፦ በተኖቹ ይበልጥ እንዲቀራረቡ (gap: 12px) እና ክፍተቱ እንዲያጥር ተደርጓል */
         .action-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: center;
-            gap: 30px; 
-            padding: 4px 10px 10px 10px; 
-            border-top: none; 
+            gap: 12px; 
+            padding: 5px 10px 15px 10px; 
             width: 100%;
-            margin-top: 0px; 
         }
 
         .action-btn {
@@ -314,7 +311,7 @@
             border: none;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             font-size: 14px;
             font-weight: 400; 
             color: #111111;
@@ -322,15 +319,15 @@
         }
 
         .action-btn i {
-            font-size: 17px; 
+            font-size: 16px; 
         }
 
         .target-corner-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 24px;  
-            height: 24px; 
+            width: 22px;  
+            height: 22px; 
         }
 
         .close-container {
@@ -437,17 +434,17 @@
                         <span class="bold-text" id="displayReceiver">Receiver Name</span> <span id="displayReceiverAcc">ETB-0000</span> on 
                         <span class="bold-text" id="displayDate">Jun 19, 2026 10:43 AM</span> with transaction ID: 
                         <span class="bold-text" id="displayTxID">FTXXXXXXXXXX</span>. Reason: MB Transfer 
-                        Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB<span id="displayService">0.50</span>, 
-                        VAT (15%) of ETB<span id="displayVat">0.08</span> and Disaster Recovery (5%) of ETB<span id="displayDisaster">0.03</span>.
+                        Total Amount Debited: <span id="displayTotalDebited" class="bold-text">0.00</span> ETB with Service Charge of ETB0.50, 
+                        VAT (15%) of ETB<span id="displayVat">0.08</span> and Disaster Recovery (5%) of ETB<span id="displayDR">0.03</span>.
                     </div>
 
                     <div class="qr-inside-card">
-                        <img id="qrCode" src="" alt="QR Code">
+                        <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CBE" alt="QR Code">
                     </div>
 
                     <div class="cbe-logo-footer">
-                        <!-- ማስተካከያ፦ እዚህ src="" ውስጥ በስልክህ ያስቀመጥከውን ትክክለኛ የባንክ ሎጎ ስም (ለምሳሌ cbe_logo.png) መጻፍ ትችላለህ -->
-                        <img class="cbe-custom-user-logo" src="cbe_logo.png" alt="CBE Logo" onerror="this.style.display='none';">
+                        <!-- ማስተካከያ፦ እዚህ ቦታ ላይ 'cbe_logo.png' የሚለውን አጥፍተህ የራስህን ፎቶ ስም ማስገባት ትችላለህ -->
+                        <img class="cbe-actual-logo" src="cbe_logo.png" alt="CBE Logo">
                         <div class="cbe-text">
                             <h4>Commercial Bank of Ethiopia</h4>
                             <p>The bank you can always rely on!</p>
@@ -456,11 +453,12 @@
                 </div>
             </div>
 
+            <!-- Tighter and closer action alignment -->
             <div class="action-bar">
                 <button class="action-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Receipt</button>
                 <button class="action-btn">
                     <div class="target-corner-icon" style="margin-right: -2px;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3" stroke-linecap="round">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.3" stroke-linecap="round">
                             <path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/>
                             <circle cx="12" cy="12" r="3.5" stroke="#111111" stroke-width="2.3" fill="none"/>
                         </svg>
@@ -492,12 +490,16 @@
             const senderAcc = "ETB-" + senderRaw;
             const receiverAcc = "ETB-" + receiverRaw;
 
-            // ማስተካከያ፦ አሁን የገባውን ብር አይቶ ራሱ በፐርሰንት ያሰላል
-            const serviceCharge = 0.50; 
-            const vatValue = (amountInput * 0.15); // 15% VAT
-            const disasterValue = (amountInput * 0.05); // 5% Disaster Recovery
+            // ማስተካከያ፦ ቫት እና ዲዛስተር ሪከቨሪ በገባው ብር መጠን ተሰልቶ በራስ-ሰር ይቀየራል
+            const serviceCharge = 0.50;
+            const vat = (amountInput * 0.00015).toFixed(2); // ባስገባኸው መጠን ልክ እንዲሰላ ካስፈለገ
+            const disasterRecovery = (amountInput * 0.00005).toFixed(2);
             
-            const totalDebited = (amountInput + serviceCharge + vatValue + disasterValue).toFixed(2);
+            // የባንኩን መደበኛ 0.08 እና 0.03 ማስቀጠል ከፈለግክ ከታች ያሉትን ሁለት መስመሮች መጠቀም ትችላለህ፦
+            // const vat = 0.08;
+            // const disasterRecovery = 0.03;
+
+            const totalDebited = (amountInput + serviceCharge + parseFloat(vat) + parseFloat(disasterRecovery)).toFixed(2);
 
             const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let randomTx = '';
@@ -523,11 +525,8 @@
             document.getElementById('displayReceiverAcc').innerText = receiverAcc.toUpperCase();
             document.getElementById('displayDate').innerText = formattedDate;
             document.getElementById('displayTxID').innerText = txID;
-            
-            // የሂሳብ ማሳያዎችን ማስተካከል
-            document.getElementById('displayService').innerText = serviceCharge.toFixed(2);
-            document.getElementById('displayVat').innerText = vatValue.toFixed(2);
-            document.getElementById('displayDisaster').innerText = disasterValue.toFixed(2);
+            document.getElementById('displayVat').innerText = vat;
+            document.getElementById('displayDR').innerText = disasterRecovery;
             document.getElementById('displayTotalDebited').innerText = totalDebited;
 
             const qrPayload = `CBE-TRANSFER|TX:${txID}|Total:${totalDebited}|Receiver:${receiverName}`;
